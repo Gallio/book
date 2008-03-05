@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Installation</title>
+  
+    <para>
+      Gallio comes in two flavors: an installer and a zip file. The installer is probably better for
+      individual development. If you work on a team you might prefer the zip distribution so you can put
+      the files in a convenient, source-controlled location.
+
+In any case you can download the latest release from http://code.google.com/p/mb-unit/downloads/list
+    </para>
+    <section>
+      <title>The Gallio Zip Distribution</title>
+      <para></para>
+    </section>
+  <section>
+    <title>The Gallio Installer</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/Installation/01.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+
+    <section>
+      <title> Plugins </title>
+      <para> Plugins add support for running tests created with frameworks other than MbUnit v3. The
+        currently available ones are: </para>
+      <itemizedlist>
+        <listitem><para>MbUnit v2: Allows you to run MbUnit v2 tests with Gallio</para></listitem>
+        <listitem><para> MSTest: Allows you to run MSTest tests with Gallio (only if you have Visual
+          Studio 2008 / Visual Studio Team System installed) </para></listitem>
+        <listitem><para>NUnit: Allows you to run NUnit tests with Gallio</para></listitem>
+        <listitem><para>xUnit.NET: Allows you to run xUnit.NET tests with Gallio</para></listitem>
+      </itemizedlist>
+      <para> Unless you need to run tests created with these frameworks, you don't need to install
+        these plugins. </para>
+    </section>
+    <section>
+      <title> Runners </title>
+      <para> Runners are programs or plugins for other programs that provide different ways to run
+        Gallio. The chosen runner has no effect on the availability of plugins, that is, you can for
+        example run NUnit tests with any of the runners provided you have installed the right
+        plugin. </para>
+      <itemizedlist>
+        <listitem><para>Echo: The console test runner</para></listitem>
+        <listitem><para>Icarus: The graphical test runner</para></listitem>
+        <listitem><para>MSBuild task: Allows you to run Gallio from an MSBuild build script</para></listitem>
+        <listitem><para>NAnt task: Allows you to run Gallio from a NAnt build script</para></listitem>
+        <listitem><para>PowerShell commands: Allows you to run Gallio from a PowerShell script</para></listitem>
+        <listitem><para>ReSharper v3 plug-in: Allows you to run Gallio from ReSharper</para></listitem>
+        <listitem><para> TestDriven.NET runner for MbUnit3: Allows you to run MbUnit v3 tests with Gallio
+          from the TestDriven.NET Visual Studio add-in </para></listitem>
+        <listitem><para> TestDriven.NET runner for Other Supported: Allows you to run tests from the
+          supported frameworks (MbUnit v2, NUnit, xUnit.NET and MSTest) with Gallio from the
+          TestDriven.NET Visual Studio add-in </para></listitem>
+      </itemizedlist>
+      <para> You probably don't need the MSBuild and NAnt tasks unless you are implementing a build
+        server. </para>
+    </section>
+    <section>
+      <title> Tools integration </title>
+      <itemizedlist>
+        <listitem><para> NCover integration: Allows you to enable code coverage with NCover by simply
+          setting a property </para></listitem>
+        <listitem><para>TypeMock integration: Allows you to enable TypeMock.NET by simply setting a
+          property</para></listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title> Documentation </title>
+      <itemizedlist>
+        <listitem><para>Standalone Help Docs: Install the CHM documentation</para></listitem>
+        <listitem><para> Visual Studio 2005 Help Docs: Install the integrated documentation for Visual
+          Studio 2005 </para></listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title> Extras </title>
+      <itemizedlist>
+        <listitem><para> CruiseControl .NET extensions: Provides an extension to allow downloading
+          attachment from the CCNet build report. It's only useful if you are implementing a build
+          server. </para></listitem>
+      </itemizedlist>
+      <para> The installer will create a folder in the Start Menu, where you will see shortcuts for
+        the Icarus GUI runner, the MbUnit website, the offline documentation, the online
+        documentation and the unistaller.
+      </para>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Images/GettingStarted/icarus.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </section>    
+  </section> 
+</chapter>
