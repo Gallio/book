@@ -1,0 +1,64 @@
+<?xml version='1.0'?>
+<!--
+  cs-hl.xml
+-->
+<highlighters>
+
+<!--<highlighter type='multiline-comment'>
+  <start>/*</start>
+  <end>*/</end>
+</highlighter>-->
+
+<highlighter type='oneline-comment'>
+  '
+</highlighter>
+
+<highlighter type='string'>
+  <string>"</string>
+  <escape>\</escape>
+</highlighter>
+
+<highlighter type='string'>
+  <string>'</string>
+  <escape>\</escape>
+</highlighter>
+
+<highlighter type='keywords'>
+  <keyword>Base</keyword>
+  <keyword>Boolean</keyword>
+  <keyword>Break</keyword>
+  <keyword>Case</keyword>
+  <keyword>Catch</keyword>
+  <keyword>Char</keyword>
+  <keyword>Class</keyword>
+  <keyword>Continue</keyword>
+  <keyword>Default</keyword>
+  <keyword>Do</keyword>
+  <keyword>Double</keyword>
+  <keyword>Else</keyword>
+  <keyword>End</keyword>
+  <keyword>Finally</keyword>
+  <keyword>Float</keyword>
+  <keyword>For</keyword>
+  <keyword>Goto</keyword>
+  <keyword>If</keyword>  
+  <keyword>Integer</keyword>
+  <keyword>Long</keyword>
+  <keyword>Namespace</keyword>
+  <keyword>New</keyword>
+  <keyword>Private</keyword>
+  <keyword>Protected</keyword>
+  <keyword>Public</keyword>
+  <keyword>Return</keyword>
+  <keyword>Shared</keyword>
+  <keyword>Select</keyword>
+  <keyword>Me</keyword>
+  <keyword>Throw</keyword>
+  <keyword>Try</keyword>
+  <keyword>Imports</keyword>
+  <keyword>Sub</keyword>
+  <keyword>Function</keyword>
+  <keyword>While</keyword>
+</highlighter>
+
+</highlighters>

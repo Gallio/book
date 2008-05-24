@@ -1,0 +1,6 @@
+<?xml version='1.0'?>
+<xslthl-config>
+  <highlighter id='cs' file='cs-hl.xml'/>
+  <highlighter id='vb' file='vb-hl.xml'/>
+  <namespace prefix="xslthl" uri="http://xslthl.sf.net" />
+</xslthl-config>
