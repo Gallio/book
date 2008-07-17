@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+// Copyright 2005-2008 Gallio Project - http://www.gallio.org/
+// Portions Copyright 2000-2004 Jonathan De Halleux, Jamie Cansdale
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+-->
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML"
+  xmlns:html="http://www.w3.org/1999/xhtml" xmlns:db="http://docbook.org/ns/docbook">
+  <title>Getting Started</title>
+  <section>
+    <title>Getting Started</title>
+    <para> In this chapter you will see step by step how to create and run a simple test project
+      using Gallio and its default test framework, MbUnit v3. It's assumed that you already know how
+      to create projects and add references in Visual Studio, but no prior knowledge of unit testing
+      or test frameworks is assumed. The screenshots were taken in Visual Studio 2008, but the steps
+      are the same for Visual Studio 2005 as well. </para>
+    <para> Let's start by creating a new class library project in Visual Studio called <emphasis
+        role="bold">SimpleLibrary</emphasis>. Delete the default class (normally <emphasis
+        role="bold"> Class1 </emphasis>) that it's added by Visual Studio and add a new one called
+        <emphasis role="bold">Fibonacci</emphasis>. It will be a pretty simple public class with
+      only one method called <emphasis role="bold">Calculate</emphasis>, as shown here: </para>
+    <programlisting>
+      C#
+      
+      namespace SimpleLibrary
+      {
+        public class Fibonacci
+        {
+          public static int Calculate(int x)
+          {
+            return Calculate(x - 1) + Calculate(x - 2);
+          }
+        }
+      }
+
+      VB
+      
+      Public Class Fibonacci
+        Public Shared Function Calculate(ByVal x As Integer) As Integer
+          Return Calculate(x - 1) + Calculate(x - 2)
+        End Function
+      End Class
+    </programlisting>
+    <para> We will write some tests to verify that this method is working properly. In a test-driven
+      methodology we would have done it the other way around, that is, we would have created a test,
+      made it fail and then we would have implemented the Calculate method to make it pass, just to
+      start over in what is known as the "red, green, refactor" cycle. Since the chosen the
+      methodology doesn't have an effect on the way we write tests, we won't do things in a TDD way. </para>
+    <para> Tests should <emphasis role="bold">never</emphasis> be put in your production code, but
+      in separate projects/assemblies. Add a new class library project to the SimpleLibrary solution
+      called <emphasis role="bold">SimpleLibrary.Test</emphasis>, delete the default class and add a
+      new one called <emphasis role="bold">FibonacciTest</emphasis>. It's a common practice to name
+      a test project after the project is testing plus <emphasis role="bold">.Tests</emphasis>, and
+      to name a unit test class after the class it's testing plus <emphasis role="bold"
+      >.Test</emphasis>. </para>
+    <para> Now, still in the test project, you need to add a reference to the SimpleLibrary project,
+      and also to the Gallio.dll and MbUnit.dll assemblies that you can find in the [Gallio install
+      folder]\bin folder. Note that the common practice is to have this assembly as well as other
+      referenced assemblies in a custom folder in your solution, mainly for location independency
+      and versioning issues, but we will cover this scenario in other chapters. </para>
+    <para> At this point, your solution should look like this: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/gs-01.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> With the project structure and references set up we can now write the first unit test.
+      The code is the following: </para>
+    <para> C# </para>
+    <para> Notice the things we did in the previous code: <itemizedlist>
+        <listitem>
+          <para> We imported the <emphasis role="bold">SimpleLibrary</emphasis> namespace </para>
+        </listitem>
+        <listitem>
+          <para> We imported the <emphasis role="bold">MbUnit.Framework</emphasis> namespace </para>
+        </listitem>
+        <listitem>
+          <para> We decorated the FibonacciTest class with the <emphasis role="bold"
+            >TestFixture</emphasis> (which is defined in the MbUnit.Framework namespace) </para>
+        </listitem>
+        <listitem>
+          <para> We made the FibonacciTest class <emphasis role="bold">public</emphasis>
+          </para>
+        </listitem>
+        <listitem>
+          <para> We added a new <emphasis role="bold">public</emphasis> method called
+            FibonacciOfNumberGreaterThanOne, which doesn't return a value. </para>
+        </listitem>
+        <listitem>
+          <para> We decorated the FibonacciOfNumberGreaterThanOne method with the <emphasis
+              role="bold"> [Test] </emphasis> attribute </para>
+        </listitem>
+        <listitem>
+          <para> We added a call to the <emphasis role="bold">Assert.Equal</emphasis> method </para>
+        </listitem>
+      </itemizedlist></para>
+    <para> You may be wondering what's the call to the Assert.AreEqual method supposed to do. Not
+      too much in fact: it only checks that the return value of the call to Fibonacci.Calculate(6)
+      is equal to 8. The Assert class is very important because it contains a lot of helpful methods
+      that make writing tests easier. </para>
+    <para> Now we have our first unit test, but how do we execute it? Gallio comes bundled with 7
+      different runners, that is, programs or plugins for other programs that allows you to execute
+      tests. This time we will use <emphasis role="bold">Icarus</emphasis>, the graphical runner,
+      because it's a standalone application (meaning that you don't need to install anything else to
+      run it). The Gallio installer creates a shortcut for it in the programs folder of the start
+      menu, so it's pretty easy to launch it: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/icarus.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> Once Icarus is running, go to the <emphasis role="bold">Assemblies->Add
+      Assemblies...</emphasis> menu: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/add-assemblies.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> Browse to the folder where you put the solution and look for the SimpleLibrary.Test.dll
+      assembly (probably located in bin\Debug under the test project's folder). The test tree is
+      populated as shown in this screenshot: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/loaded-tests.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> You can see the MbUnit version under the Root node, and under it the names of the
+      assembly, the fixture and the test method. The next step is to execute the test, for which you
+      only need to press the <emphasis role="bold">Start</emphasis> button. After doing so we see
+      that it passes: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/executed-tests.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> But what does it mean for a test to "pass"? It means that it was executed, all its
+      assertions were true and no exception was thrown. This is the basic structure of a test in the
+      so called state-based testing: create one on more objects, call a method and assert over the
+      state of it after doing it. The different kind of testing and methodologies differ in the
+      order in which they perform these things, and the where they focus the test. </para>
+    <para> So far so good, but we need to test more scenarios to make sure that the test didn't pass
+      because we were lucky, but because the method is actually working. In other words, we need to
+      test for different values of x. Since we cannot test every possible value, the common practice
+      is to pick a few representative cases. In our case, it's clear that we also need to test at
+      least the following three scenarios: <itemizedlist>
+        <listitem>
+          <para>x less than 0</para>
+        </listitem>
+        <listitem>
+          <para>x equal to 0</para>
+        </listitem>
+        <listitem>
+          <para>x equal to 1</para>
+        </listitem>
+      </itemizedlist></para>
+    <para> We face an interesting case: what should we do if x is a negative number? The Fibonacci
+      function is only defined for numbers greater or equal than zero, so it makes sense to throw an
+      exception in that case. But how do we test that behavior? We said a test will only pass if no
+      exception is thrown during its execution. One option would be to put the call to the <emphasis
+        role="bold">Fibonacci.Calculate</emphasis> in a try-catch block, calling the Assert.Fail or
+      throwing a new exception method in case the one we are waiting for is not thrown, but a better
+      option is to use the handy <emphasis role="bold">ExpectedException</emphasis> attribute that
+      will do just that for us: </para>
+    <para> C# </para>
+    <para> We run the test and we see it fails (but note that FibonacciOfNumberGreaterThanOne keeps
+      passing): </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/failing-test.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> This is what we would expect, since we are not trowing any exception in the Calculate
+      method. Let's fix that: </para>
+    <para> We execute the tests again and all of them pass this time: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/test-fixed.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> All that's left is to add tests for x equal to 0 and 1. But instead of writing a test for
+      each of them, we will use a powerful feature called row testing to reduce the amount of coding
+      we need to do. Here's the code: </para>
+    <para> There are a few differences between this test and the previous we wrote: </para>
+    <para>
+      <itemizedlist>
+        <listitem>
+          <para> We applied some <emphasis role="bold">Row</emphasis> attributes </para>
+        </listitem>
+        <listitem>
+          <para> This test method receives <emphasis role="bold">2 parameters</emphasis>, just as
+            the number of items in each Row attribute </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <para> So what does this all mean? Gallio will create test instances for each Row attribute, and
+      will pass each value of it as a parameter to the test method (in the same order by default),
+      converting to the right type if necessary. We run the tests in Icarus again and voilá!, they
+      pass: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/final-execution.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> Row testing is one of the simplest cases of data-driven testing. As we will see later,
+      Gallio has powerful data-binding capabilities, supporting a heterogeneous set of datasources
+      and many ways to manipulate and scope them. </para>
+    <para> As the last thing in this chapter, we will see how to run the tests we created with the
+        <emphasis role="bold">TestDriven.NET</emphasis> add-in, which is one of the most popular
+      ways for developers to run tests in Visual Studio. </para>
+    <para> You can download TestDrive.NET from its website, http://www.testdriven.net/. It's a commercial product, but at the time of this
+      writing there's a personal version of it. </para>
+    <para> After you have downloaded and installed TestDrive.NET, open the sample solution again and
+      right-click on the SimpleLibrary.Test project, as shown in the screenshot: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/run-assembly.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> In a few seconds you see this output: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/tdnet-result.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> The real benefit, however, of using the TestDriven.NET add-in comes when you want to run
+      individual tests: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/run-individual-test.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> In this case, the output window shows pretty useful information, like which test
+      instances were executed, the parameters they were passed and the outcome of each one: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/result-individual-test.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> Also there is a link to the generated HTML report. If you Control-click it it will be
+      opened inside Visual Studio: </para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="Images/GettingStarted/test-report.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para> This report is always generated in a folder called Gallio.TDNetRunner within your
+      temporary files folder. Unfortunately the link is not displayed when executing tests at the
+      assembly level. </para>
+    <para> You now know pretty much everything that you need to get started. But keep reading! There
+      is still much more to discover in the next chapters. </para>
+  </section>
+</chapter>
