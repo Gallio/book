@@ -10,7 +10,7 @@
     <FopBat>$(ModuleDir)\tools\fop-0.94\fop.bat</FopBat>
     <FopConf>$(ModuleDir)\resources\Fo\Fop.xconf</FopConf>
 
-    <BookXml>$(ModuleDir)\content\GallioBook.en.xml</BookXml>
+    <BookXml>$(ModuleDir)\content\TheGallioBook.xml</BookXml>
 
     <XHtmlXslt>$(ModuleDir)\resources\Html\XHtml.xsl</XHtmlXslt>
     <HtmlCss>$(ModuleDir)\resources\Html\GallioBook.css</HtmlCss>

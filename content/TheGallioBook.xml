@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
-  <!ENTITY preface SYSTEM "Preface.en.xml">
-  <!ENTITY title SYSTEM "Title.en.xml">
-  <!ENTITY theGallioPlatform SYSTEM "The-Gallio-Platform.xml">  
-  <!ENTITY installation SYSTEM "Installation.en.xml">
-  <!ENTITY gettingStarted SYSTEM "Getting-Started.en.xml">
+  <!ENTITY preface SYSTEM "Preface.xml">
+  <!ENTITY title SYSTEM "Title.xml">
+  <!ENTITY theGallioPlatform SYSTEM "TheGallioPlatform.xml">  
+  <!ENTITY installation SYSTEM "Installation.xml">
+  <!ENTITY gettingStarted SYSTEM "GettingStarted.xml">
   ]>
   <!-- 
 // Copyright 2005-2008 Gallio Project - http://www.gallio.org/

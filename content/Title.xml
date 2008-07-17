@@ -15,10 +15,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 -->
-<title version="5.0" xmlns="http://docbook.org/ns/docbook"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:xi="http://www.w3.org/2001/XInclude"
-         xmlns:svg="http://www.w3.org/2000/svg"
-         xmlns:mml="http://www.w3.org/1998/Math/MathML"
-         xmlns:html="http://www.w3.org/1999/xhtml"
-         xmlns:db="http://docbook.org/ns/docbook">The Gallio Book</title>
+<info>
+  <title>The Gallio Book</title>
+  <author>Julián Hidalgo</author>
+  <copyright>
+    <year>2008</year>
+    <holder>The Gallio Project</holder>
+  </copyright>
+</info>
