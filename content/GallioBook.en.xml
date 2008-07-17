@@ -24,5 +24,5 @@
       xmlns:db="http://docbook.org/ns/docbook">
   <xi:include href="Title.en.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
   <xi:include href="Installation.en.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-  <xi:include href="Getting-Started.en.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="GettingStarted.en.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </book>
