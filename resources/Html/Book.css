@@ -1,0 +1,56 @@
+﻿@import url(gallio.css);
+
+h2,h3,h4 
+{
+	font-family:"Trebuchet MS",sans-serif; font-weight:normal; 
+}
+#book-content 
+{
+	text-align: center; background: rgb(233,231,204); margin: 0; padding: 0; font:12px/1.5 Verdana,sans-serif;
+}
+#book-content-inner
+{ 
+	background-color: White;
+	text-align: justify;  padding: 0 0 0 0; margin: 0;
+    width: 800px; margin-left: auto; margin-right: auto;
+}
+#book-content-inner2 
+{
+	border-left: solid 20px #333E46; padding: 15px 30px 15px 30px;
+}
+.code-listing 
+{
+	text-align: center;
+	border: solid 1px rgb(233,231,204);
+	margin: 1em auto 1em auto;
+	width: 600px;
+}
+.programlisting
+{ 
+	background-color: White; width: 600px; margin-left: auto; margin-right: auto; text-align: left; 
+}
+.mediaobject
+{
+	text-align: center;
+}
+.navheader, .navfooter
+{
+	width: 800px;
+	font:12px/1.5 Verdana,sans-serif;
+}
+.navheader a, .navfooter a
+{
+	color: blue;
+}
+div.code-listing-label
+{
+	color: Black;
+	font-weight: bold;
+	background-color: rgb(233,231,204);
+	padding: 0;
+	border-bottom: solid 1px #bbb;
+}
+div.toc
+{
+	font:12px/1.5 Verdana,sans-serif;	
+}

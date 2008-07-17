@@ -6,7 +6,7 @@
                 exclude-result-prefixes="xsl d xslthl"
                 version="1.0">
   
-  <xsl:import href='../docbook-xsl-ns/xhtml/chunk.xsl'/>
+  <xsl:import href='../../tools/docbook-xsl-ns/xhtml/chunk.xsl'/>
 
   <xsl:output method="html"
               encoding="utf-8"
@@ -14,7 +14,7 @@
 
   <xsl:param name="highlight.source" select="1"/>
   <xsl:param name="navig.showtitles" select="0"/>
-  <xsl:param name="html.stylesheet" select="'book.css'"/>
+  <xsl:param name="html.stylesheet" select="'Book.css'"/>
   <!-- Not sure if this is really needed, but it doesn't hurt -->
   <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
   <!-- Don't show rules below the header navigation bar or above the footer navigation bar -->
