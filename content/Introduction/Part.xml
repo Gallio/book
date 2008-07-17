@@ -1,0 +1,9 @@
+<part version="5.0"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction</title>
+  <xi:include href="AboutGallio\Chapter.xml" />
+  <xi:include href="Installation\Chapter.xml" />
+  <xi:include href="GettingStarted\Chapter.xml" />
+</part>

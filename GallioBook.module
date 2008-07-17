@@ -7,16 +7,20 @@
     <XslthlJar>$(ModuleDir)\tools\Xslthl\xslthl.jar</XslthlJar>
     <XslthlConfig>$(ModuleDir)\resources\Highlighters\xslthl-config.xml</XslthlConfig>
 
+    <XercesJar>$(ModuleDir)\tools\xerces-2_9_1\xercesImpl.jar</XercesJar>
+
     <FopBat>$(ModuleDir)\tools\fop-0.94\fop.bat</FopBat>
     <FopConf>$(ModuleDir)\resources\Fo\Fop.xconf</FopConf>
 
-    <BookXml>$(ModuleDir)\content\TheGallioBook.xml</BookXml>
+    <BookXml>$(ModuleDir)\content\GallioBook.xml</BookXml>
 
     <XHtmlXslt>$(ModuleDir)\resources\Html\XHtml.xsl</XHtmlXslt>
     <HtmlCss>$(ModuleDir)\resources\Html\GallioBook.css</HtmlCss>
     <HtmlHelpXslt>$(ModuleDir)\resources\Html\HtmlHelp.xsl</HtmlHelpXslt>
 
     <PdfXslt>$(ModuleDir)\resources\Fo\Pdf.xsl</PdfXslt>
+
+    <TransformCommand>java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot;;&quot;$(XercesJar)&quot; -Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl -Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl -Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet</TransformCommand>
   </PropertyGroup>
 
   <Target Name="AfterBuild"
@@ -28,14 +32,14 @@
 
     <MakeDir Directories="$(ImageDir)\GallioBook\XHtml" />
 
-    <Exec Command="java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot; -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet &quot;$(BookXml)&quot; &quot;$(XHtmlXslt)&quot; chunker.output.encoding=&quot;UTF-8&quot; chunker.output.indent=&quot;yes&quot; html.stylesheet=&quot;$(HtmlCss)&quot;"
+    <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(XHtmlXslt)&quot; chunker.output.encoding=&quot;UTF-8&quot; chunker.output.indent=&quot;yes&quot; html.stylesheet=&quot;$(HtmlCss)&quot;"
           WorkingDirectory="$(ImageDir)\GallioBook\XHtml" />
   </Target>
 
   <Target Name="RenderDocBookPdf">
     <Message Text="Rendering Book in PDF..." Importance="High" />
 
-    <Exec Command="java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot; -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet -o &quot;$(TempDir)\GallioBook\GallioBook.fo&quot; &quot;$(BookXml)&quot; &quot;$(PdfXslt)&quot;" />
+    <Exec Command="$(TransformCommand) -o &quot;$(TempDir)\GallioBook\GallioBook.fo&quot; &quot;$(BookXml)&quot; &quot;$(PdfXslt)&quot;" />
     <Exec Command="&quot;$(FopBat)&quot; -fo &quot;$(TempDir)\GallioBook\GallioBook.fo&quot; -c &quot;$(FopConf)&quot; -pdf &quot;$(ImageDir)\GallioBook\GallioBook.pdf&quot;" />
   </Target>
 
@@ -53,7 +57,7 @@
     <MakeDir Directories="$(TempDir)\GallioBook\HtmlHelp"
              Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"/>
 
-    <Exec Command="java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot; -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet &quot;$(BookXml)&quot; &quot;$(HtmlHelpXslt)&quot; html.stylesheet=&quot;$(HtmlCss)&quot; htmlhelp.chm=&quot;$(ImageDir)\GallioBook\GallioBook.chm&quot;"
+    <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(HtmlHelpXslt)&quot; html.stylesheet=&quot;$(HtmlCss)&quot; htmlhelp.chm=&quot;$(ImageDir)\GallioBook\GallioBook.chm&quot;"
           WorkingDirectory="$(TempDir)\GallioBook\HtmlHelp"
           Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"/>
 

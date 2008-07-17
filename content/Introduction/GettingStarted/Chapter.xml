@@ -15,10 +15,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 -->
-<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
-  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude"
-  xmlns:svg="http://www.w3.org/2000/svg" xmlns:mml="http://www.w3.org/1998/Math/MathML"
-  xmlns:html="http://www.w3.org/1999/xhtml" xmlns:db="http://docbook.org/ns/docbook">
+<chapter version="5.0"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML">
   <title>Getting Started</title>
   <para>
     In this chapter you will see step by step how to create and run a simple test project
@@ -81,7 +83,7 @@
   <para> At this point, your solution should look like this: </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/gs-01.png" format="PNG"/>
+      <imagedata fileref="images/gs-01.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -169,7 +171,7 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/icarus.png" format="PNG"/>
+      <imagedata fileref="images/icarus.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -180,7 +182,7 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/add-assemblies.png" format="PNG"/>
+      <imagedata fileref="images/add-assemblies.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -190,7 +192,7 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/loaded-tests.png" format="PNG"/>
+      <imagedata fileref="images/loaded-tests.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -201,7 +203,7 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/executed-tests.png" format="PNG"/>
+      <imagedata fileref="images/executed-tests.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -258,7 +260,7 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/failing-test.png" format="PNG"/>
+      <imagedata fileref="images/failing-test.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -290,7 +292,7 @@
   <para> We execute the tests again and all of them pass this time: </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/test-fixed.png" format="PNG"/>
+      <imagedata fileref="images/test-fixed.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -341,7 +343,7 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/final-execution.png" format="PNG"/>
+      <imagedata fileref="images/final-execution.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -364,13 +366,13 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/run-assembly.png" format="PNG"/>
+      <imagedata fileref="images/run-assembly.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para> In a few seconds you see this output: </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/tdnet-result.png" format="PNG"/>
+      <imagedata fileref="images/tdnet-result.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -379,7 +381,7 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/run-individual-test.png" format="PNG"/>
+      <imagedata fileref="images/run-individual-test.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -388,7 +390,7 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/result-individual-test.png" format="PNG"/>
+      <imagedata fileref="images/result-individual-test.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
@@ -397,7 +399,7 @@
   </para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="Images/GettingStarted/test-report.png" format="PNG"/>
+      <imagedata fileref="images/test-report.png" format="PNG"/>
     </imageobject>
   </mediaobject>
   <para>
