@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preface version="5.0" xmlns="http://docbook.org/ns/docbook">
+  <title>Preface</title>
+  <section>
+    <title>Why This Book?</title>
+    <para>
+      One of the biggest problems in many open source projects is the lack of proper documentation.
+      This is a shame because there is not point in implementing a thousand features if no one knows about them.
+      The Gallio development team was very aware of this issue, so documentation was given a high priority from
+      the beginning of the project. The API reference documentation, which is automatically generated from
+      the source code, was the first sign of this concern, but the team knew users need more: they need
+      a guide to show them how to use the multiple features, the runners and so on under different scenarios.
+      So the idea of writing a book was there from the beginning, in our wishlist, but we knew it was a big
+      task so it was posponed.
+    </para>
+    <para>
+      Around February in 2008, the topic arised again in a conversation between Jeff Brown, Gallio's lead and
+      main developer, and I. The project
+      was approaching a new alpha release and a beta version was not too far away either, so there was a lot
+      to write about. I decided I'd go ahead and write the book myself, even though I felt (and still feel) I
+      was not the best person to do it, hoping that the rest of the team and the community would help me to
+      fill the gaps in my English and my time.
+    </para>
+    <para>
+      I'm glad to see we are publishing the first draft of the book. I sincerely hope it'll help you to
+      leverage the full power of this exciting platform and all the tools that are been built around it.
+      Happy testing!
+    </para>
+  </section>
+  <section>
+    <title>Who is This Book For?</title>
+    <para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Developers.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Testers.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            People wanting to extend Gallio.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </para>
+  </section>
+</preface>

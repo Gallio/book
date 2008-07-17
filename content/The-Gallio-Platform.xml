@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook">
+  <title>The Gallio Automation Platform</title>
+  <section>
+    <title>What is Gallio?</title>
+    <para>
+      The Gallio Automation Platform is an open, extensible, and neutral system for .NET that provides a common object model, runtime services and tools (such as test runners) that may be leveraged by any number of test frameworks.
+      <para>
+      </para>
+      The Gallio platform seeks to facilitate the creation of a rich ecosystem of interoperable testing tools produced by and for the community at large so as to address a far wider range of testing needs than any previous independent testing framework has done before. Unit tests, integration tests, performance tests, and even semi-automated test harnesses should all be able to leverage common facilities where appropriate. Moreover, they should present consistent interfaces to the world so that they can easily be integrated into the systems and processes of the enterprise.
+    </para>
+  </section>
+  <section>
+    <title>History</title>
+    <para>In January 2004 Marc Clifton, a frequent contributor at Codeproject, wrote a series of articles that sought to expand the unit testing discussion.  Among other things, Marc proposed a formalization of various test patterns beyond basic TDD.  Marc then took his ideas into code as AUT (Advanced Unit Testing), an independed project that you can find at Codeproject.</para>
+    <para>Two months later, Jonathan "Peli" de Halleux took a look at Marc's proposals and created gUnit (which was later renamed to MbUnit) while recovering from surgery in a hospital.  In fact, Peli wrote most of MbUnit while still in the hospital.</para>
+    <para>MbUnit had some new ideas and concepts and it caught the attention of Jamie Cansdale who while on a trip to Brussels hooked up with Peli to work on an add-on for TD.net. TD.net started life as a NUnit project and so this made MbUnit the next framework after NUnit to be supported by TD.net, as such since the very early days of this great tool there has been MbUnit support.</para>
+    <para>In 2005 Peli made MbUnit opensource and continued working on the framework while finishing his PhD. Shortly after completing his PhD he accepted a job with Microsoft as a SDE\T on the CLR team.  Unable to carry on MbUnit, he handed it over to Jamie Cansdale as short time caretaker. Peli blogged about needing someone to take on MbUnit and shortly after Andy Stopford as a long time MbUnit user read this and stepped up.</para>
+    <para>Since then MbUnit has grown as a framework and project, with two major releases and triple the downloads per release it has firmly rooted itself in main stream Microsoft .net culture as a viable unit test framework next to NUnit.</para>
+    <para>In the autumn of 2007, MbUnit v3 - a ground up rewrite of MbUnit, started.  In one of those funny turn of events, v3 was to be code named "Gallileo" but due to a typo became "Gallio".  The name stuck and development continued on MbUnit v3, code name: Gallio.</para>
+    <para>With MbUnit V3 developmement well under way, long time MbUnit core member Jeff Brown attended the Alt.Net conference in Austin, Texas.  Following discussions with other programmers at the conference, Jeff made the case to the MbUnit team that there was value to the community at large in isolating the test runner capabilities of the system to create a neutral platform upon which MbUnit could then be hosted as one of many supported frameworks.  Other open-source and commercial projects would be able to leverage the platform's services to create rich, interoperable and extensible testing solutions, thereby adding great value to the community.</para>
+    <para>After much discussion, the decision was made to separate the test runner from MbUnit and Gallio the Automation Platform was born.</para>
+    <para>Going forward the Gallio Project seeks to become visible to other open source projects so that the capabilities of the platform can bring unity and value to the many projects in the testing space.</para>
+  </section>
+</chapter>

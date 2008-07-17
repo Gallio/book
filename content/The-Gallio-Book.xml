@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!DOCTYPE book [
+  <!ENTITY preface SYSTEM "Preface.en.xml">
+  <!ENTITY title SYSTEM "Title.en.xml">
+  <!ENTITY theGallioPlatform SYSTEM "The-Gallio-Platform.xml">  
+  <!ENTITY installation SYSTEM "Installation.en.xml">
+  <!ENTITY gettingStarted SYSTEM "Getting-Started.en.xml">
+  ]>
+  <!-- 
 // Copyright 2005-2008 Gallio Project - http://www.gallio.org/
 // Portions Copyright 2000-2004 Jonathan De Halleux, Jamie Cansdale
 // 
@@ -17,12 +24,16 @@
 -->
 <book version="5.0" xmlns="http://docbook.org/ns/docbook"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-      xmlns:xi="http://www.w3.org/2001/XInclude"
-      xmlns:svg="http://www.w3.org/2000/svg"
-      xmlns:mml="http://www.w3.org/1998/Math/MathML"
-      xmlns:html="http://www.w3.org/1999/xhtml"
-      xmlns:db="http://docbook.org/ns/docbook">
-  <xi:include href="Title.en.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-  <xi:include href="Installation.en.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-  <xi:include href="GettingStarted.en.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+      xmlns:html="http://www.w3.org/1999/xhtml">
+  &preface;
+  &title;
+  <part>
+    <title>Introduction</title>
+    &theGallioPlatform;
+    &installation;
+    &gettingStarted;
+  </part>
+  <part>
+    <title>Runners</title>
+  </part>
 </book>
