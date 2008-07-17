@@ -12,7 +12,7 @@
 
     <BookXml>$(ModuleDir)\content\GallioBook.en.xml</BookXml>
 
-    <HtmlXslt>$(ModuleDir)\resources\Html\Html.xsl</HtmlXslt>
+    <XHtmlXslt>$(ModuleDir)\resources\Html\XHtml.xsl</XHtmlXslt>
     <HtmlCss>$(ModuleDir)\resources\Html\GallioBook.css</HtmlCss>
     <HtmlHelpXslt>$(ModuleDir)\resources\Html\HtmlHelp.xsl</HtmlHelpXslt>
 
@@ -24,12 +24,12 @@
   </Target>
 
   <Target Name="RenderDocBookHtml">
-    <Message Text="Rendering Book in HTML..." Importance="High" />
+    <Message Text="Rendering Book in XHTML..." Importance="High" />
 
-    <MakeDir Directories="$(ImageDir)\GallioBook\Html" />
+    <MakeDir Directories="$(ImageDir)\GallioBook\XHtml" />
 
-    <Exec Command="java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot; -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet &quot;$(BookXml)&quot; &quot;$(HtmlXslt)&quot; chunker.output.encoding=&quot;UTF-8&quot; chunker.output.indent=&quot;yes&quot; html.stylesheet=&quot;$(HtmlCss)&quot;"
-          WorkingDirectory="$(ImageDir)\GallioBook\Html" />
+    <Exec Command="java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot; -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet &quot;$(BookXml)&quot; &quot;$(XHtmlXslt)&quot; chunker.output.encoding=&quot;UTF-8&quot; chunker.output.indent=&quot;yes&quot; html.stylesheet=&quot;$(HtmlCss)&quot;"
+          WorkingDirectory="$(ImageDir)\GallioBook\XHtml" />
   </Target>
 
   <Target Name="RenderDocBookPdf">

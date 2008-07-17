@@ -3,6 +3,6 @@
                 xmlns:xslthl="http://xslthl.sf.net"
                 exclude-result-prefixes="xslthl"
                 version="1.0">
-  <xsl:import href='../../tools/docbook-xsl-ns/html/chunk.xsl'/>
+  <xsl:import href='../../tools/docbook-xsl-ns/xhtml/chunk.xsl'/>
   <xsl:import href='Common.xsl'/>
 </xsl:stylesheet>
