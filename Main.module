@@ -14,12 +14,15 @@
     <XslthlJar>$(ModuleDir)\tools\Xslthl\xslthl.jar</XslthlJar>
     <XslthlConfig>$(ModuleDir)\resources\Highlighters\xslthl-config.xml</XslthlConfig>
 
+    <FopBat>$(ModuleDir)\tools\fop-0.94\fop.bat</FopBat>
+
     <BookXml>$(ModuleDir)\content\GallioBook.en.xml</BookXml>
 
     <HtmlXslt>$(ModuleDir)\resources\Html\Html.xsl</HtmlXslt>
     <HtmlCss>$(ModuleDir)\resources\Html\GallioBook.css</HtmlCss>
 
     <PdfXslt>$(ModuleDir)\resources\Pdf\Pdf.xsl</PdfXslt>
+    <PdfFopConf>$(ModuleDir)\resources\Pdf\Fop.xconf</PdfFopConf>
   </PropertyGroup>
 
   <Target Name="AfterBuild"
@@ -27,6 +30,8 @@
   </Target>
 
   <Target Name="RenderDocBookHtml">
+    <Message Text="Rendering Book in HTML..." Importance="High" />
+
     <MakeDir Directories="$(ImageDir)\Html" />
 
     <Exec Command="java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot; -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet &quot;$(BookXml)&quot; &quot;$(HtmlXslt)&quot; chunker.output.encoding=&quot;UTF-8&quot; chunker.output.indent=&quot;yes&quot; html.stylesheet=&quot;$(HtmlCss)&quot;"
@@ -34,7 +39,21 @@
   </Target>
 
   <Target Name="RenderDocBookPdf">
+    <Message Text="Rendering Book in PDF..." Importance="High" />
+
+    <MakeDir Directories="$(ImageDir)\Pdf" />
+
     <Exec Command="java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot; -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet -o &quot;$(TempDir)\GallioBook.fo&quot; &quot;$(BookXml)&quot; &quot;$(PdfXslt)&quot;" />
+    <Exec Command="&quot;$(FopBat)&quot; -fo &quot;$(TempDir)\GallioBook.fo&quot; -c &quot;$(PdfFopConf)&quot; -pdf &quot;$(ImageDir)\Pdf\GallioBook.pdf&quot;" />
+  </Target>
+
+  <Target Name="RenderDocBookChm">
+    <Message Text="Rendering Book in CHM..." Importance="High" />
+
+    <MakeDir Directories="$(ImageDir)\Chm" />
+
+    <Exec Command="java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot; -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet -o &quot;$(TempDir)\GallioBook.fo&quot; &quot;$(BookXml)&quot; &quot;$(PdfXslt)&quot;" />
+    <Exec Command="&quot;$(FopBat)&quot; -fo &quot;$(TempDir)\GallioBook.fo&quot; -c &quot;$(PdfFopConf)&quot; -pdf &quot;$(ImageDir)\Pdf\GallioBook.pdf&quot;" />
   </Target>
 
 <!--
