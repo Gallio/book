@@ -32,6 +32,7 @@
   <keyword>case</keyword>
   <keyword>catch</keyword>
   <keyword>char</keyword>
+  <keyword>checked</keyword>
   <keyword>class</keyword>
   <keyword>const</keyword>
   <keyword>continue</keyword>
@@ -60,6 +61,8 @@
   <keyword>this</keyword>
   <keyword>throw</keyword>
   <keyword>try</keyword>
+  <keyword>unchecked</keyword>
+  <keyword>unsafe</keyword>
   <keyword>using</keyword>
   <keyword>void</keyword>
   <keyword>volatile</keyword>
