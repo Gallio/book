@@ -22,6 +22,11 @@
     <TransformCommand>java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot;;&quot;$(XercesJar)&quot; -Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl -Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl -Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet</TransformCommand>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <HtmlHelpWorkshopInstallDir>$(Registry:HKEY_CURRENT_USER\Software\Microsoft\HTML Help Workshop\@InstallDir)</HtmlHelpWorkshopInstallDir>
+    <HtmlHelpWorkshopInstallDir Condition="'HtmlHelpWorkshopInstallDir'==''">$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\HTML Help Workshop\@InstallDir)</HtmlHelpWorkshopInstallDir>
+  </PropertyGroup>
+
   <Target Name="AfterBuild"
           DependsOnTargets="RenderDocBookXHtml;RenderDocBookPdf;RenderDocBookHtmlHelp">
   </Target>
@@ -29,9 +34,6 @@
   <Target Name="RenderDocBookXHtml"
           DependsOnTargets="CopyContentForXHtml">
     <Message Text="Rendering Book in XHTML..." Importance="High" />
-
-    <Exec Command="$(TransformCommand) -o &quot;c:\temp\foo.xml&quot; &quot;$(BookXml)&quot; &quot;c:\temp\template.xsl&quot;" />
-
 
     <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(XHtmlXslt)&quot; chunker.output.encoding=&quot;UTF-8&quot; chunker.output.indent=&quot;yes&quot; html.stylesheet=&quot;Book.css&quot; keep.relative.image.uris=0"
           WorkingDirectory="$(ImageDir)\GallioBook\XHtml" />
@@ -45,35 +47,32 @@
           WorkingDirectory="content" />
   </Target>
 
-  <Target Name="RenderDocBookHtmlHelp">
+  <Target Name="RenderDocBookHtmlHelp"
+          DependsOnTargets="WarnIfHtmlHelpWorkshopNotInstalled;RenderIfHtmlHelpWorkshopInstalled" />
+
+  <Target Name="WarnIfHtmlHelpWorkshopNotInstalled"
+          Condition="'$(HtmlHelpWorkshopInstallDir)'==''">
+    <Warning Text="The HTML Help Workshop does not appear to be installed.  The documentation will not be rendered in this format." />
+  </Target>
+
+  <Target Name="RenderIfHtmlHelpWorkshopInstalled"
+          Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"
+          DependsOnTargets="CopyContentForHtmlHelp">
     <Message Text="Rendering Book in HtmlHelp (CHM)..." Importance="High" />
 
-    <PropertyGroup>
-      <HtmlHelpWorkshopInstallDir>$(Registry:HKEY_CURRENT_USER\Software\Microsoft\HTML Help Workshop\@InstallDir)</HtmlHelpWorkshopInstallDir>
-      <HtmlHelpWorkshopInstallDir Condition="'HtmlHelpWorkshopInstallDir'==''">$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\HTML Help Workshop\@InstallDir)</HtmlHelpWorkshopInstallDir>
-    </PropertyGroup>
-
-    <Warning Text="The HTML Help Workshop does not appear to be installed.  The documentation will not be rendered in this format."
-             Condition="'$(HtmlHelpWorkshopInstallDir)'==''"/>
-
-    <MakeDir Directories="$(TempDir)\GallioBook\HtmlHelp"
-             Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"/>
-
     <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(HtmlHelpXslt)&quot; html.stylesheet=&quot;Book.css&quot; htmlhelp.chm=&quot;$(ImageDir)\GallioBook\GallioBook.chm&quot; keep.relative.image.uris=0"
-          WorkingDirectory="$(TempDir)\GallioBook\HtmlHelp"
-          Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"/>
+          WorkingDirectory="$(TempDir)\GallioBook\HtmlHelp" />
 
     <Exec Command="&quot;$(HtmlHelpWorkshopInstallDir)\hhc.exe&quot; &quot;$(TempDir)\GallioBook\HtmlHelp\htmlhelp.hhp&quot;"
-          WorkingDirectory="content"
-          Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"
 	  IgnoreExitCode="true"/>
 
     <Error Text="CHM file not produced!"
-           Condition="'$(HtmlHelpWorkshopInstallDir)'!='' and ! Exists('$(ImageDir)\GallioBook\GallioBook.chm')"/>
+           Condition="! Exists('$(ImageDir)\GallioBook\GallioBook.chm')"/>
   </Target>
 
   <Target Name="CopyContentForXHtml">
     <RemoveDir Directories="$(ImageDir)\GallioBook\XHtml" />
+    <MakeDir Directories="$(ImageDir)\GallioBook" />
 
     <SvnExport RepositoryPath="$(ModuleDir)\content"
                LocalPath="$(ImageDir)\GallioBook\XHtml" />
@@ -84,5 +83,13 @@
 
     <Delete Files="@(_ContentFilesToDeleteForXHtml)"
             Condition="'@(_ContentFilesToDeleteForXHtml)'!=''" />
+  </Target>
+
+  <Target Name="CopyContentForHtmlHelp">
+    <RemoveDir Directories="$(TempDir)\GallioBook\HtmlHelp" />
+    <MakeDir Directories="$(TempDir)\GallioBook" />
+
+    <SvnExport RepositoryPath="$(ModuleDir)\content"
+               LocalPath="$(TempDir)\GallioBook\HtmlHelp" />
   </Target>
 </Project>
