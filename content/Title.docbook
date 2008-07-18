@@ -15,7 +15,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 -->
-<info>
+<info version="5.0" xmlns="http://docbook.org/ns/docbook">
   <title>The Gallio Book</title>
   <author>Julián Hidalgo</author>
   <copyright>

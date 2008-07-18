@@ -18,8 +18,8 @@
 <book version="5.0" xmlns="http://docbook.org/ns/docbook"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       xmlns:xi="http://www.w3.org/2001/XInclude">
-  <xi:include href="Preface.xml" />
-  <xi:include href="Title.xml" />
-  <xi:include href="Introduction/Part.xml" />
-  <xi:include href="Runners/Part.xml" />
+  <xi:include href="Preface.docbook" />
+  <xi:include href="Title.docbook" />
+  <xi:include href="Introduction/Part.docbook" />
+  <xi:include href="Runners/Part.docbook" />
 </book>
