@@ -20,6 +20,9 @@
     <PdfXslt>$(ModuleDir)\resources\Fo\Pdf.xsl</PdfXslt>
 
     <TransformCommand>java -cp &quot;$(SaxonJar)&quot;;&quot;$(XslthlJar)&quot;;&quot;$(XercesJar)&quot; -Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl -Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl -Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration -Dxslthl.config=&quot;file:///$(XslthlConfig)&quot; com.icl.saxon.StyleSheet</TransformCommand>
+
+    <DistLabel>0</DistLabel>
+    <DistLabel Condition="'$(BuildNumber)'!=''">$(BuildNumber)</DistLabel>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -91,5 +94,13 @@
 
     <SvnExport RepositoryPath="$(ModuleDir)\content"
                LocalPath="$(TempDir)\GallioBook\HtmlHelp" />
+  </Target>
+
+  <Target Name="BeforeDist">
+    <ItemGroup>
+      <File Include="$(ImageDir)\GallioBook\**\*">
+        <DistPath>GallioBook-$(DistLabel)</DistPath>
+      </File>
+    </ItemGroup>
   </Target>
 </Project>

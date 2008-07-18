@@ -1,0 +1,12 @@
+<Project DefaultTargets="Dist" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <BuildNumber>$(CCNetLabel)</BuildNumber>
+    <BuildNumber Condition="'$(BuildNumber)'==''">0</BuildNumber>
+  </PropertyGroup>
+
+  <Target Name="Dist">
+    <MSBuild Projects="tools\MetaBuild\bin\MetaBuild.msbuild"
+             Properties="BuildNumber=$(BuildNumber)"
+	     Targets="Clean;Build;Image;Test;Dist" />
+  </Target>
+</Project>
