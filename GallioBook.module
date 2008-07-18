@@ -23,22 +23,21 @@
   </PropertyGroup>
 
   <Target Name="AfterBuild"
-          DependsOnTargets="RenderDocBookHtml;RenderDocBookPdf;RenderDocBookHtmlHelp;CopyImagesAndExamplesForHtml">
+          DependsOnTargets="RenderDocBookXHtml;RenderDocBookPdf;RenderDocBookHtmlHelp">
   </Target>
 
-  <Target Name="RenderDocBookHtml">
+  <Target Name="RenderDocBookXHtml"
+          DependsOnTargets="CopyContentForXHtml">
     <Message Text="Rendering Book in XHTML..." Importance="High" />
 
-    <MakeDir Directories="$(ImageDir)\GallioBook\XHtml" />
-
-    <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(XHtmlXslt)&quot; chunker.output.encoding=&quot;UTF-8&quot; chunker.output.indent=&quot;yes&quot; html.stylesheet=&quot;Book.css&quot;"
+    <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(XHtmlXslt)&quot; chunker.output.encoding=&quot;UTF-8&quot; chunker.output.indent=&quot;yes&quot; html.stylesheet=&quot;Book.css&quot; keep.relative.image.uris=0"
           WorkingDirectory="$(ImageDir)\GallioBook\XHtml" />
   </Target>
 
   <Target Name="RenderDocBookPdf">
     <Message Text="Rendering Book in PDF..." Importance="High" />
 
-    <Exec Command="$(TransformCommand) -o &quot;$(TempDir)\GallioBook\GallioBook.fo&quot; &quot;$(BookXml)&quot; &quot;$(PdfXslt)&quot;" />
+    <Exec Command="$(TransformCommand) -o &quot;$(TempDir)\GallioBook\GallioBook.fo&quot; &quot;$(BookXml)&quot; &quot;$(PdfXslt)&quot; keep.relative.image.uris=0" />
     <Exec Command="&quot;$(FopBat)&quot; -fo &quot;$(TempDir)\GallioBook\GallioBook.fo&quot; -c &quot;$(FopConf)&quot; -pdf &quot;$(ImageDir)\GallioBook\GallioBook.pdf&quot;" />
   </Target>
 
@@ -56,7 +55,7 @@
     <MakeDir Directories="$(TempDir)\GallioBook\HtmlHelp"
              Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"/>
 
-    <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(HtmlHelpXslt)&quot; html.stylesheet=&quot;Book.css&quot; htmlhelp.chm=&quot;$(ImageDir)\GallioBook\GallioBook.chm&quot;"
+    <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(HtmlHelpXslt)&quot; html.stylesheet=&quot;Book.css&quot; htmlhelp.chm=&quot;$(ImageDir)\GallioBook\GallioBook.chm&quot; keep.relative.image.uris=0"
           WorkingDirectory="$(TempDir)\GallioBook\HtmlHelp"
           Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"/>
 
@@ -68,11 +67,17 @@
            Condition="'$(HtmlHelpWorkshopInstallDir)'!='' and ! Exists('$(ImageDir)\GallioBook\GallioBook.chm')"/>
   </Target>
 
-  <Target Name="CopyImagesAndExamplesForHtml">
+  <Target Name="CopyContentForXHtml">
+    <RemoveDir Directories="$(ImageDir)\GallioBook\XHtml" />
+
     <SvnExport RepositoryPath="$(ModuleDir)\content"
-               LocalPath="$(ImageDir)\GallioBook\Html"
-	       Force="true" />
-    <Copy SourceFiles="$(ModuleDir)\resources\Html\Book.css;$(ModuleDir)\resources\Html\Gallio.css"
-          DestinationFolder="$(ImageDir)\GallioBook\Html" />
+               LocalPath="$(ImageDir)\GallioBook\XHtml" />
+	       
+    <ItemGroup>
+      <_ContentFilesToDeleteForXHtml Include="$(ImageDir)\GallioBook\XHtml\**\*.docbook" />
+    </ItemGroup>
+
+    <Delete Files="@(_ContentFilesToDeleteForXHtml)"
+            Condition="'@(_ContentFilesToDeleteForXHtml)'!=''" />
   </Target>
 </Project>
