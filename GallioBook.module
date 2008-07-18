@@ -30,6 +30,9 @@
           DependsOnTargets="CopyContentForXHtml">
     <Message Text="Rendering Book in XHTML..." Importance="High" />
 
+    <Exec Command="$(TransformCommand) -o &quot;c:\temp\foo.xml&quot; &quot;$(BookXml)&quot; &quot;c:\temp\template.xsl&quot;" />
+
+
     <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(XHtmlXslt)&quot; chunker.output.encoding=&quot;UTF-8&quot; chunker.output.indent=&quot;yes&quot; html.stylesheet=&quot;Book.css&quot; keep.relative.image.uris=0"
           WorkingDirectory="$(ImageDir)\GallioBook\XHtml" />
   </Target>
@@ -38,7 +41,8 @@
     <Message Text="Rendering Book in PDF..." Importance="High" />
 
     <Exec Command="$(TransformCommand) -o &quot;$(TempDir)\GallioBook\GallioBook.fo&quot; &quot;$(BookXml)&quot; &quot;$(PdfXslt)&quot; keep.relative.image.uris=0" />
-    <Exec Command="&quot;$(FopBat)&quot; -fo &quot;$(TempDir)\GallioBook\GallioBook.fo&quot; -c &quot;$(FopConf)&quot; -pdf &quot;$(ImageDir)\GallioBook\GallioBook.pdf&quot;" />
+    <Exec Command="&quot;$(FopBat)&quot; -fo &quot;$(TempDir)\GallioBook\GallioBook.fo&quot; -c &quot;$(FopConf)&quot; -pdf &quot;$(ImageDir)\GallioBook\GallioBook.pdf&quot;"
+          WorkingDirectory="content" />
   </Target>
 
   <Target Name="RenderDocBookHtmlHelp">
@@ -60,6 +64,7 @@
           Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"/>
 
     <Exec Command="&quot;$(HtmlHelpWorkshopInstallDir)\hhc.exe&quot; &quot;$(TempDir)\GallioBook\HtmlHelp\htmlhelp.hhp&quot;"
+          WorkingDirectory="content"
           Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"
 	  IgnoreExitCode="true"/>
 

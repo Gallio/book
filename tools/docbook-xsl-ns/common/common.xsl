@@ -1722,6 +1722,11 @@ node location.</para>
 
   <!-- Recursively resolve xml:base attributes, up to a 
        full path with : in uri -->
+  <!-- Disabled by Jeff Brown on 7/18/2008 because it turns out that
+       the Xerces XInclude processor encodes xml:base using the full
+       path relative to the starting directory rather than using
+       partial paths relative to the containing element's xml:base
+       as is assumed by this code.
   <xsl:if test="$base.elem/ancestor::*[@xml:base != ''] and
                 not(contains($base.elem/@xml:base, ':'))">
     <xsl:call-template name="xml.base.dirs">
@@ -1729,6 +1734,7 @@ node location.</para>
                       select="$base.elem/ancestor::*[@xml:base != ''][1]"/>
     </xsl:call-template>
   </xsl:if>
+  -->
   <xsl:call-template name="getdir">
     <xsl:with-param name="filename" select="$base.elem/@xml:base"/>
   </xsl:call-template>
