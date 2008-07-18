@@ -27,7 +27,9 @@
 
   <PropertyGroup>
     <HtmlHelpWorkshopInstallDir>$(Registry:HKEY_CURRENT_USER\Software\Microsoft\HTML Help Workshop\@InstallDir)</HtmlHelpWorkshopInstallDir>
-    <HtmlHelpWorkshopInstallDir Condition="'HtmlHelpWorkshopInstallDir'==''">$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\HTML Help Workshop\@InstallDir)</HtmlHelpWorkshopInstallDir>
+    <HtmlHelpWorkshopInstallDir Condition="'$(HtmlHelpWorkshopInstallDir)'==''">$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\HTML Help Workshop\@InstallDir)</HtmlHelpWorkshopInstallDir>
+    <HtmlHelpWorkshopInstallDir Condition="'$(HtmlHelpWorkshopInstallDir)'==''">$(ProgramFiles)\HTML Help Workshop</HtmlHelpWorkshopInstallDir>
+    <HtmlHelpWorkshopCompiler Condition="'$(HtmlHelpWorkshopInstallDir)'!='' and Exists('$(HtmlHelpWorkshopInstallDir)\hhc.exe')">$(HtmlHelpWorkshopInstallDir)\hhc.exe</HtmlHelpWorkshopCompiler>
   </PropertyGroup>
 
   <Target Name="AfterBuild"
@@ -54,19 +56,19 @@
           DependsOnTargets="WarnIfHtmlHelpWorkshopNotInstalled;RenderIfHtmlHelpWorkshopInstalled" />
 
   <Target Name="WarnIfHtmlHelpWorkshopNotInstalled"
-          Condition="'$(HtmlHelpWorkshopInstallDir)'==''">
+          Condition="'$(HtmlHelpWorkshopCompiler)'==''">
     <Warning Text="The HTML Help Workshop does not appear to be installed.  The documentation will not be rendered in this format." />
   </Target>
 
   <Target Name="RenderIfHtmlHelpWorkshopInstalled"
-          Condition="'$(HtmlHelpWorkshopInstallDir)'!=''"
+          Condition="'$(HtmlHelpWorkshopCompiler)'!=''"
           DependsOnTargets="CopyContentForHtmlHelp">
     <Message Text="Rendering Book in HtmlHelp (CHM)..." Importance="High" />
 
     <Exec Command="$(TransformCommand) &quot;$(BookXml)&quot; &quot;$(HtmlHelpXslt)&quot; html.stylesheet=&quot;Book.css&quot; htmlhelp.chm=&quot;$(ImageDir)\GallioBook\GallioBook.chm&quot; keep.relative.image.uris=0"
           WorkingDirectory="$(TempDir)\GallioBook\HtmlHelp" />
 
-    <Exec Command="&quot;$(HtmlHelpWorkshopInstallDir)\hhc.exe&quot; &quot;$(TempDir)\GallioBook\HtmlHelp\htmlhelp.hhp&quot;"
+    <Exec Command="&quot;$(HtmlHelpWorkshopCompiler)&quot; &quot;$(TempDir)\GallioBook\HtmlHelp\htmlhelp.hhp&quot;"
 	  IgnoreExitCode="true"/>
 
     <Error Text="CHM file not produced!"
