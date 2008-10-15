@@ -27,8 +27,10 @@
       Gallio comes in two flavors: an installer and a zip file. The installer is probably better for
       individual development. If you work on a team you might prefer the zip distribution so you can put
       the files in a convenient, source-controlled location.
-
-In any case you can download the latest release from http://code.google.com/p/mb-unit/downloads/list
+    </para>
+    <para>
+      In any case you can download the latest release from <link
+        xlink:href="http://www.gallio.org/">http://www.gallio.org/</link>.
     </para>
     <section>
       <title>The Gallio Zip Distribution</title>

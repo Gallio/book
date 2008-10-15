@@ -5,7 +5,7 @@
                 exclude-result-prefixes="xslthl"
                 version="1.0">
   
-  <xsl:import href='../../tools/docbook-xsl-ns/fo/docbook.xsl'/>
+  <xsl:import href='../../tools/docbook-xsl/fo/docbook.xsl'/>
 
   <xsl:param name="highlight.source" select="1"/>
 

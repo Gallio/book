@@ -6,7 +6,7 @@
                 exclude-result-prefixes="xsl d xslthl"
                 version="1.0">
   
-  <xsl:import href='../../tools/docbook-xsl-ns/xhtml/chunk.xsl'/>
+  <xsl:import href='../../tools/docbook-xsl/xhtml/chunk.xsl'/>
 
   <xsl:output method="html"
               encoding="utf-8"
@@ -88,25 +88,7 @@
       <ul>
         <li>◄</li>
         <li>
-          <a href="Default.aspx">homepage</a>
-        </li>
-        <li>
-          <a href="http://code.google.com/p/mb-unit/">code</a>
-        </li>
-        <li>
-          <a href="http://ccnet.gallio.org/">builds</a>
-        </li>
-        <li>
-          <a href="http://code.google.com/p/mb-unit/w/list">wiki</a>
-        </li>
-        <li>
-          <a href="http://code.google.com/p/mb-unit/issues/list">issues</a>
-        </li>
-        <li>
-          <a href="http://groups.google.com/group/gallio-dev?lnk=li">gallio-dev</a>
-        </li>
-        <li style=" float: right; padding-right: 30px;">
-          <a href='/LogIn.aspx'>login</a>
+          <a href="/Default.aspx">homepage</a>
         </li>
       </ul>
     </div>    

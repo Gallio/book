@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part version="5.0" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Test Framework Adapters</title>
+  <partintro>
+    <para>Gallio provides test framework adapters for numerous test frameworks.  This part describes how to use
+      each of them.</para>
+  </partintro>
+  <xi:include href="csUnit/Chapter.docbook"/>
+  <xi:include href="MbUnit v2/Chapter.docbook"/>
+  <xi:include href="MSTest/Chapter.docbook"/>
+  <xi:include href="NUnit/Chapter.docbook"/>
+  <xi:include href="xUnit.Net/Chapter.docbook"/>
+</part>

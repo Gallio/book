@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part version="5.0"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Extending Gallio and MbUnit</title>
+  <partintro>
+    <para>
+      Gallio and MbUnit provide many opportunities for extension.  This part covers different
+      scenarios and sample implementations.
+    </para>
+  </partintro>
+  
+  <xi:include href="Architecture/Chapter.docbook" />
+  <xi:include href="CreatingPlugins/Chapter.docbook" />
+  <xi:include href="CreatingTestFrameworks/Chapter.docbook" />
+</part>

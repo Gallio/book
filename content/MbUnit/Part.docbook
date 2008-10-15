@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part version="5.0"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>MbUnit v3</title>
+  <xi:include href="AboutMbUnit/Chapter.docbook" />
+  <xi:include href="UnitTesting/Chapter.docbook" />
+  <xi:include href="DataDrivenTesting/Chapter.docbook" />
+  <xi:include href="WebTesting/Chapter.docbook" />
+  <xi:include href="DatabaseTesting/Chapter.docbook" />
+  <xi:include href="Recipes/Chapter.docbook" />
+  <xi:include href="Troubleshooting/Chapter.docbook" />
+  <xi:include href="MigrationGuide/Chapter.docbook" />
+</part>

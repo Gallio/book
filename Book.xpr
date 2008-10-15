@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options>
+            <serialized>
+                <map>
+                    <entry>
+                        <String xml:space="preserve">clear.undo.buffer.before.format.and.indent</String>
+                        <Boolean xml:space="preserve">false</Boolean>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">editor.detect.indent.on.open</String>
+                        <Boolean xml:space="preserve">false</Boolean>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">editor.detect.line.width.on.open</String>
+                        <Boolean xml:space="preserve">false</Boolean>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">editor.format.on.open</String>
+                        <Boolean xml:space="preserve">false</Boolean>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">editor.hard.line.wrap</String>
+                        <Boolean xml:space="preserve">true</Boolean>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">editor.indent.on.enter</String>
+                        <Boolean xml:space="preserve">true</Boolean>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">editor.indent.size.v9.2</String>
+                        <Integer xml:space="preserve">2</Integer>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">editor.line.width</String>
+                        <Integer xml:space="preserve">100</Integer>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">editor.use.smart.enter</String>
+                        <Boolean xml:space="preserve">true</Boolean>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">editor.use.tabs</String>
+                        <Boolean xml:space="preserve">false</Boolean>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">external.tool.cmds</String>
+                        <xsltCustomEngines-array>
+                            <xsltCustomEngines>
+                                <field name="outEncoding">
+                                    <null/>
+                                </field>
+                                <field name="errEncoding">
+                                    <null/>
+                                </field>
+                                <field name="cmd">
+                                    <String xml:space="preserve">"${pd}\Build.bat"</String>
+                                </field>
+                                <field name="description">
+                                    <String xml:space="preserve">Builds the documentation and puts the output into the build folder.</String>
+                                </field>
+                                <field name="name">
+                                    <String xml:space="preserve">Build Docs</String>
+                                </field>
+                                <field name="workingDirectory">
+                                    <String xml:space="preserve">${pd}</String>
+                                </field>
+                                <field name="keyStroke">
+                                    <null/>
+                                </field>
+                            </xsltCustomEngines>
+                        </xsltCustomEngines-array>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">key.editor.format.option.pane.group</String>
+                        <Boolean xml:space="preserve">true</Boolean>
+                    </entry>
+                    <entry>
+                        <String xml:space="preserve">key.external.tools.option.pane</String>
+                        <Boolean xml:space="preserve">true</Boolean>
+                    </entry>
+                </map>
+            </serialized>
+        </options>
+    </meta>
+    <projectTree name="Book.xpr">
+        <folder path="content/"/>
+    </projectTree>
+</project>

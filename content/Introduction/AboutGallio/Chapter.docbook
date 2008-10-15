@@ -8,9 +8,6 @@
     <title>What is Gallio?</title>
     <para>
       The Gallio Automation Platform is an open, extensible, and neutral system for .NET that provides a common object model, runtime services and tools (such as test runners) that may be leveraged by any number of test frameworks.
-      <para>
-      </para>
-      The Gallio platform seeks to facilitate the creation of a rich ecosystem of interoperable testing tools produced by and for the community at large so as to address a far wider range of testing needs than any previous independent testing framework has done before. Unit tests, integration tests, performance tests, and even semi-automated test harnesses should all be able to leverage common facilities where appropriate. Moreover, they should present consistent interfaces to the world so that they can easily be integrated into the systems and processes of the enterprise.
     </para>
   </section>
   <section>

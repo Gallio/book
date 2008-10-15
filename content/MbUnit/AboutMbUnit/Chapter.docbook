@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter version="5.0"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>About MbUnit</title>
+  <section>
+    <title>What is MbUnit?</title>
+    <para>
+      MbUnit is a unit testing framework in the tradition of xUnit frameworks
+      such as JUnit.  In addition, MbUnit includes a rich suite of features
+      designed to simplify other automation tasks that arise during
+      integration testing.
+    </para>
+    <para>
+      MbUnit was originally created in 2005 by Jonathan "Peli" de Halleux.
+      It introduced and popularized novel ideas such as "RowTests" and
+      "CombinatorialTests".
+    </para>
+    <para>
+      The present incarnation of MbUnit, MbUnit v3, represents a complete
+      rewrite and redesign of Peli's original work to improve the end-user
+      experience, consolidate features, enhance extensibility,
+      and enable advanced integration testing and reporting.  From this synthesis,
+      Gallio was born.
+    </para>
+    <para>
+      For more information about the early history of MbUnit, refer to the
+      introductory chapter about Gallio.
+    </para>
+  </section>
+  <section>
+    <title>MbUnit v2 vs. MbUnit v3</title>
+    <para>
+      The subject of this section is MbUnit v3.  However, we will
+      occasionally refer to the older MbUnit v2.  This section will explain
+      a few of the differences between these versions.
+    </para>
+    <para>
+      MbUnit v3 is a .Net 2.0 based framework.  It uses generic types
+      and methods where possible to encourage code reuse.  It also provides
+      additional features for .Net 3.5 clients in a separate assembly.
+      MbUnit v3 leverages the Gallio test automation platform heavily to
+      provide integration with numerous other tools and to enable functionality
+      such as rich reporting.
+    </para>
+    <para>
+      MbUnit v2 is a .Net 1.1 based framework with a few .Net 2.0 add-ons.
+      It is stand-alone framework that includes its own suite of test runners.
+      Gallio includes an adapter plugin so that Gallio-based tools may also
+      be used with MbUnit v2 (when running tests in a .Net 2.0 environment).
+      However, since MbUnit v2 was not originally designed for Gallio, it
+      does not provide as many advanced features as MbUnit v3.
+    </para>
+    <para>
+      MbUnit v2 is being maintained concurrently with MbUnit v3 for the benefit
+      of existing projects based on MbUnit v2 that have not yet migrated to
+      MbUnit v3.  For new projects, we recommend adopting MbUnit v3.
+    </para>
+    <para>
+      MbUnit v3 is mostly backwards compatible with MbUnit v2 except for some
+      APIs that have been renamed or redesigned.  Transitioning
+      to MbUnit v2 is relatively straightforward.
+    </para>
+    <para>
+      For more information about the differences between MbUnit v2 and v3,
+      please refer to the Migration Guide chapter.
+    </para>
+  </section>
+  <section>
+    <title>Feature Matrix</title>
+    <para>
+    TODO
+    </para>
+  </section>
+  <section>
+    <title>Requirements</title>
+    <para>
+    .Net 2.0 runtime (CLR or Mono)
+    </para>
+    <para>
+    TODO
+    </para>
+  </section>
+</chapter>

@@ -2,4 +2,4 @@
 REM
 REM Runs the build.
 REM
-"%~dp0tools\MetaBuild\bin\MetaBuild.bat" /sourcedir "%~dp0" %*
+"%~dp0tools\MetaBuild\bin\MetaBuild.bat" /rootdir "%~dp0" %*

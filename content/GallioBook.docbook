@@ -18,8 +18,30 @@
 <book version="5.0" xmlns="http://docbook.org/ns/docbook"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       xmlns:xi="http://www.w3.org/2001/XInclude">
+  <info>
+    <title>The Gallio Book</title>
+    <authorgroup>
+      <author><personname>Jeff Brown</personname></author>
+      <author><personname>Julián Hidalgo</personname></author>
+    </authorgroup>
+    <copyright>
+      <year>2008</year>
+      <holder>Gallio Project</holder>
+    </copyright>
+    <address>http://www.gallio.org/</address>
+    <xi:include href="ReleaseInfo.docbook"/>
+  </info>
+  
+  <!-- TODO the acknowledgements elements does not seem to be supported in the DocBook
+    XSL v1.74 templates
+  <xi:include href="Acknowledgements.docbook" />
+  -->
+  
   <xi:include href="Preface.docbook" />
-  <xi:include href="Title.docbook" />
   <xi:include href="Introduction/Part.docbook" />
+  <xi:include href="MbUnit/Part.docbook" />
+  <xi:include href="FrameworkAdapters/Part.docbook" />
   <xi:include href="Runners/Part.docbook" />
+  <xi:include href="Tools/Part.docbook" />
+  <xi:include href="Extensibility/Part.docbook" />
 </book>

@@ -1,0 +1,57 @@
+> This is what I have in mind so far:
+>
+> **************************************************
+> Part I: Introduction
+> --------------------
+> Chapter 1: Introduction to Gallio
+> Chapter 2: Installation
+> Chapter 3: Getting Started
+>   // A tutorial like, step by step guide to get some test running
+>
+> Part II - Testing with Gallio
+> -----------------------------
+> Chapter xx: Introducing MbUnit3
+> Chapter xx: Unit Testing
+>     (would include integration with mocking frameworks) Chapter xx: 
+> Data-driven Tests Chapter xx: Integration Testing Chapter xx: Recipes 
+> Chapter xx: Troubleshooting
+>
+> Part III - Runners
+> ------------------
+> Chapter xx: Echo (The Console Runner)
+> Chapter xx: Icarus (The Graphical Runner) Chapter xx: TestDriven.NET 
+> Chapter xx: PowerShell commands Chapter xx: ReSharper v3 plug-in 
+> Chapter xx: MSBuild task Chapter xx: NAnt
+>
+> Part IV - Gallio in Depth
+> --------------
+> Chapter xx: Reporting
+> Chapter xx: Running Tests with Other Frameworks
+>   - MbUnit v2
+>   - NUnit
+>   - MSTest
+>   - xUnit.NET
+> Chapter xx: Integration with other tools/frameworks
+>   - NCover
+>   - TypeMock
+>
+> Part V : Extending Gallio
+> ==========================
+>
+> Chapter xx: Understanding the Gallio Architecture 
+Chapter xx: Understanding Gallio Plugins 
+Chapter xx: Creating Plugins
+Chapter xx: 
+> Creating a Simple Test Framework
+>
+> Appendix
+> ========
+> API Reference
+>
+> **************************************************
+>
+> I'd like to have parts I and III done this month, and then part II 
+> before the beta release. I will need help to polish the English of 
+> course. I've already written some stuff. I will show it next week I hope.
+>
+> What do you think?

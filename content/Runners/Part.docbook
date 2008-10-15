@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<part version="5.0"
-      xmlns="http://docbook.org/ns/docbook"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Runners</title>
+<part version="5.0" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Test Runners</title>
+  <partintro>
+    <para> Gallio's test runners integrate with a variety of tools.  Some test runners are
+      standalone applications, others integrate with the IDE, and a few provide specialized tasks
+      for release engineering purposes.  This part describes how to use
+      each of them.</para>
+    <para>Choose your favorite!</para>
+  </partintro>
+  <xi:include href="Icarus/Chapter.docbook"/>
+  <xi:include href="Sail/Chapter.docbook"/>
+  <xi:include href="TestDriven.Net/Chapter.docbook"/>
+  <xi:include href="Visual Studio Team System/Chapter.docbook"/>
+  <xi:include href="ReSharper/Chapter.docbook"/>
+  <xi:include href="Echo/Chapter.docbook"/>
+  <xi:include href="Powershell/Chapter.docbook"/>
+  <xi:include href="MSBuild/Chapter.docbook"/>
+  <xi:include href="NAnt/Chapter.docbook"/>
 </part>
