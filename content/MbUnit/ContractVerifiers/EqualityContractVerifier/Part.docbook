@@ -15,7 +15,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 -->
-<chapter version="5.0"
+<section version="5.0"
     xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -25,4 +25,4 @@
   <para>
     TODO
   </para>
-</chapter>
+</section>
