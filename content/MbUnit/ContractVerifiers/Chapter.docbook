@@ -27,14 +27,14 @@
     <para>The contract verifiers are declared by adding an attribute to your test fixture. An hypothetical contract verifier for the <emphasis role="bold">Foo</emphasis> contract would be declared like this:</para>
     <programlisting language="cs">
       <![CDATA[[TestFixture]
-      [FooContractVerifier(option1=blabla, option2=blabla)]
+      [FooContractVerifier(option1=value1, option2=value2)]
       public class MyFooTest
       {
       }]]></programlisting>
-    <para>Remark the different options passed through the constructor of the attribute. Those options are used to configure the contract verifier. They also make it more flexible by letting you enable or disable some features at your convenience.</para>
+    <para>Remark the different options passed through the constructor of the attribute. Those options are used to configure the contract verifier. They also make it more flexible by letting you enable or disable certain features at your convenience.</para>
     <para>The current version of MbUnit v3 provides the following built-in contract verifiers:</para>
   </partintro>
-  <xi:include href="ExceptionContractVerifier/Part.docbook" />
-  <xi:include href="EqualityContractVerifier/Part.docbook" />
-  <xi:include href="ComparisonContractVerifier/Part.docbook" />
+  <xi:include href="ExceptionContractVerifier/Section.docbook" />
+  <xi:include href="EqualityContractVerifier/Section.docbook" />
+  <xi:include href="ComparisonContractVerifier/Section.docbook" />
 </chapter>
