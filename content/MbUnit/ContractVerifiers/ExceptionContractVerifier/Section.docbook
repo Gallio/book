@@ -23,6 +23,11 @@
     xmlns:mml="http://www.w3.org/1998/Math/MathML">
   <title>The Exception Contract Verifier</title>
   <para>
-    TODO
+    The Exception Contract Verifier adds several tests to a given fixture which evaluates a custom user exception. The contract verifier is declared as an attribute with the following syntax:
   </para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/sample-report.png" format="PNG"/>
+    </imageobject>
+  </mediaobject>
 </section>

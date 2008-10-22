@@ -25,4 +25,9 @@
   <para>
     TODO
   </para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/sample-report.png" format="PNG"/>
+    </imageobject>
+  </mediaobject>
 </section>
