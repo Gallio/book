@@ -84,6 +84,8 @@
     <section>
       <title> Tools integration </title>
       <itemizedlist>
+        <listitem><para> AutoCAD plug-in: Allows tests that depend on the AutoCAD API (ObjectARX)
+          to run inside the AutoCAD process.</para></listitem>
         <listitem><para> NCover integration: Allows you to enable code coverage with NCover by simply
           setting a property </para></listitem>
         <listitem><para>TypeMock integration: Allows you to enable TypeMock.NET by simply setting a

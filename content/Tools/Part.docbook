@@ -5,6 +5,7 @@
     xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Test Tools</title>
   <xi:include href="Ambience/Chapter.docbook" />
+  <xi:include href="AutoCAD/Chapter.docbook"/>
   <xi:include href="NCover/Chapter.docbook" />
   <xi:include href="Pex/Chapter.docbook" />
   <xi:include href="TypeMock/Chapter.docbook" />

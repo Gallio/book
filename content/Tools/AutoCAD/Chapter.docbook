@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter version="5.0"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>AutoCAD Integration</title>
+  <section>
+    <title>Introduction</title>
+    <para>
+      Programs that depend on ObjectARX, the API that Autodesk provides
+      for extending AutoCAD, can be difficult to test because ObjectARX
+      imposes several restrictions on applications that depend on it:
+    </para>
+    <itemizedlist>
+      <listitem><para>The ObjectARX API is only usuable within an "ObjectARX
+        Host Application" such as AutoCAD or one of its product verticals.
+        </para></listitem>
+      <listitem><para>The ObjectARX API can only be accessed by a single thread
+        at a time. Additionally, many operations such as calling the destructor
+        on an AcDbObject must be performed on a specific thread provided by the
+        host application.
+        </para></listitem>
+      <listitem><para>The ObjectARX API makes use of Microsoft's OpenMP implementation.
+        This implementation does not allow for non-default AppDomains to be
+        created within the same process that OpenMP (vcomp.dll) is loaded in.
+        </para></listitem>
+    </itemizedlist>
+    <para>
+      Gallio's AutoCAD support allows for tests to be run within this set of
+      restrictions.
+    </para>
+  </section>
+  <section>
+    <title>Using the AutoCAD Test Runner</title>
+    <para>
+      The AutoCAD test runner is not a full-fledged test runner such as Icarus
+      or Echo. Instead it enables the actual test runner to perform the run
+      within AutoCAD.
+    </para>
+    <para>
+      To use the AutoCAD test runner specify "AutoCAD" as the runner type. This
+      option is only be available on systems that have Gallio's AutoCAD
+      integration components installed.
+    </para>
+    <para>
+      The runner type is specified in different ways depending on the
+      test runner used.  In Gallio Icarus, it appears as a preference item
+      in the GUI.  With Gallio Echo, it appears as a command-line argument.
+      Likewise the MSBuild, NAnt and PowerShell tasks accept a runner type
+      as an argument.  Refer to the documentation of your test runner for
+      more information.
+    </para>
+    <para>
+      The following example shows how to run tests from the command-line
+      using AutoCAD.
+    </para>
+    <cmdsynopsis>
+      <command>Gallio.Echo</command>
+      <arg rep='norepeat' choice='req'>/runnerType:AutoCAD</arg>
+      <arg rep='repeat' choice='plain'><replaceable>paths-to-test-assemblies</replaceable></arg>
+    </cmdsynopsis>
+    <section>
+      <title>How Gallio Finds AutoCAD</title>
+      <para>
+        Gallio finds AutoCAD by looking in the Windows registry to see what
+        AutoCAD application is registered to handle the .DWG file extension.
+        Typically this is whatever instance of AutoCAD ran most recently. If
+        you have multiple versions of AutoCAD installed and want to test with
+        a specific one, run the one you want before starting your tests.
+      </para>
+    </section>
+  </section>
+</chapter>
