@@ -23,56 +23,74 @@
     xmlns:mml="http://www.w3.org/1998/Math/MathML">
   <title>The Exception Contract Verifier</title>
   <para>
-    The Exception Contract Verifier adds to a fixture, several tests which evaluate a custom user exception. The contract verifier is declared as an attribute with the following syntax:
+    The Exception Contract Verifier adds to a fixture, several tests which evaluate a custom user exception. The contract verifier is declared as a public read-only field of the test fixture. It has the following specifications:
   </para>
   <programlisting language="cs">
-    <![CDATA[[VerifyExceptionContract(
-      Type exceptionType, 
-      ImplementsSerialization = true|false, 
-      ImplementsStandardConstructors = true|false)]]]></programlisting>
+    <![CDATA[public class VerifyExceptionContract<TException> : IContractVerifier
+      : where TException : Exception
+    {
+      public bool ImplementsOperatorOverloads
+      {
+        get;
+        set;
+      }
+      
+      public bool ImplementsStandardConstructors
+      {
+        get;
+        set;
+      }
+    }]]></programlisting>
   <para>
     A simple and typical usage is:
   </para>
   <programlisting language="cs">
-    <![CDATA[using MbUnit.Framework;
+    <![CDATA[using System;
+    using MyLibrary;
+    using MbUnit.Framework;
     using MbUnit.Framework.ContractVerifiers;
-    
-    namespace MyTests
+
+    namespace MyLibrary.Test
     {
         [TestFixture]
-        [VerifyExceptionContract(typeof(MyException))]
         public class MyExceptionTest
         {
+          [ContractVerifier]
+          public readonly IContractVerifer ExceptionTests = new VerifierExceptionContract<MyException>()
+          {
+            ImplementsSerialization = true; // Optional (default is true)
+            ImplementsStandardConstructors = true; // Optional (default is true)
+          };
         }
     }]]></programlisting>
   <para>
-    The attribute takes only one single required parameter defining the type of the tested exception; <emphasis role="bold">MyException</emphasis> in the example above. The additional named parameters <emphasis role="bold">ImplementsSerialization</emphasis> and <emphasis role="bold">ImplementsStandardConstructors</emphasis> disables some of the test methods described later.
+    The contract verifier takes only one single required type parameter defining the type of the tested exception; <emphasis role="bold">MyException</emphasis>, in the example above. The optional properties <emphasis role="bold">ImplementsSerialization</emphasis> and <emphasis role="bold">ImplementsStandardConstructors</emphasis> disable some of the test methods described below.
   </para>
   <para>
-    The verifier adds at runtime, five test methods to the fixture:<itemizedlist>
+    The verifier adds at runtime, five test methods to the test fixture:<itemizedlist>
     <listitem>
       <para>
-        <emphasis role="bold">HasSerializableAttribute</emphasis> verifies that the tested exception type has the attribute <emphasis role="bold">System.Serializable</emphasis>. Settings the named parameter <emphasis role="bold">ImplementsSerialization</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        <emphasis role="bold">HasSerializableAttribute</emphasis> verifies that the tested exception type has the attribute <emphasis role="bold">System.Serializable</emphasis>. Setting the property <emphasis role="bold">ImplementsSerialization</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
       </para>
     </listitem>
     <listitem>
       <para>
-        <emphasis role="bold">HasSerializationConstructor</emphasis> verifies that the tested exception type has a non-public constructor similar to <emphasis role="bold">System.Exception(SerializationInfo, StreamingContext)</emphasis>. Settings the named parameter <emphasis role="bold">ImplementsSerialization</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        <emphasis role="bold">HasSerializationConstructor</emphasis> verifies that the tested exception type has a non-public constructor similar to <emphasis role="bold">System.Exception(SerializationInfo, StreamingContext)</emphasis>. Setting the property <emphasis role="bold">ImplementsSerialization</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
       </para>
     </listitem>
      <listitem>
       <para>
-        <emphasis role="bold">IsDefaultConstructorWellDefined</emphasis> verifies that a public default constructor is present. If the named parameter <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Settings the named parameter <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        <emphasis role="bold">IsDefaultConstructorWellDefined</emphasis> verifies that a public default constructor is present. If the property <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Setting the property <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
       </para>
     </listitem>
      <listitem>
       <para>
-        <emphasis role="bold">IsMessageConstructorWellDefined</emphasis> verifies that a public constructor with one sinle parameter for the message is present. If the named parameter <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Settings the named parameter <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        <emphasis role="bold">IsMessageConstructorWellDefined</emphasis> verifies that a public constructor with one single parameter for the message is present. If the property <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Setting the property <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
       </para>
     </listitem>
      <listitem>
       <para>
-        <emphasis role="bold">IsMessageAndInnerExceptionConstructorWellDefined</emphasis> verifies that a public constructor with two parameters for the message and the inner exception is present. If the named parameter <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Settings the named parameter <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        <emphasis role="bold">IsMessageAndInnerExceptionConstructorWellDefined</emphasis> verifies that a public constructor with two parameters for the message and the inner exception is present. If the property <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Setting the property <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
       </para>
     </listitem>
     </itemizedlist>

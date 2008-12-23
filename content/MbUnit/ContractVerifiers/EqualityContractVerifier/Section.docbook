@@ -23,7 +23,113 @@
     xmlns:mml="http://www.w3.org/1998/Math/MathML">
   <title>The Equality Contract Verifier</title>
   <para>
-    TODO
+    The Equality Contract Verifier adds to a fixture, several tests which evaluate the correct implementation of the genertic interface <emphasis role="bold">System.IEquatable</emphasis>. The contract verifier is declared as a public read-only field of the test fixture. It has the following specifications:
+  </para>
+  <programlisting language="cs">
+    <![CDATA[public class VerifyEqualityContract<TTarget> : IContractVerifier
+        where TTarget : IEquatable<TTarget>
+    {
+      public bool ImplementsOperatorOverloads
+      {
+        get;
+        set;
+      }
+      
+      public EquivalenceClassCollection<TTarget> EquivalenceClasses
+      {
+          get;
+          set;
+      }
+    }]]></programlisting>
+  <para>
+    A simple and typical usage is:
+  </para>
+  <programlisting language="cs">
+    <![CDATA[using System;
+    using MyLibrary;
+    using MbUnit.Framework;
+    using MbUnit.Framework.ContractVerifiers;
+
+    namespace MyLibrary.Test
+    {
+        [TestFixture]
+        public class FooTest
+        {
+          [ContractVerifier]
+          public readonly IContractVerifer EqualityTests = new VerifierEqualityContract<Foo>()
+          {
+            ImplementsOperatorOverloads = true; // Optional (default is true)
+            EquivalenceClasses = EquivalenceClassCollection<Foo>.FromDistinctInstances(
+              new Foo(1),
+              new Foo(2),
+              new Foo(3))
+          };
+        }
+    }]]></programlisting>
+  <para>
+    The contract verifier takes one single required type parameter defining the type of the tested equatable type; <emphasis role="bold">Foo</emphasis>, in the example above. The optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> disables some of the test methods described below.
+  </para>
+  <para>The property <emphasis role="bold">EquivalenceClasses</emphasis> is mandatory. It feeds the contract verifier with various valid object instances grouped by equivalence classes. An equivalence class contains a collection of distinct objects which are expected to be equal together (in the sense of your implementation of the equality for the tested type.) Instances contained in different equivalence classes are expected to be not equal. The equivalence classes make possible the contract verifier to test both for equality and inequality between objects. Thus, it is important to feed appropriately the contract verifier with a set of relevant and common objects based on real use cases. Null references are not considered as a valid input for an equivalence class. Indeed, the test engine determines automatically whether the tested type is nullable, and modifies the necessary tests accordingly.
+  </para>
+  <para>
+  There are two possible ways to construct and initialize a collection of equivalence classes. You can either use directly the constructor, or the static factory method <emphasis role="bold">FromDistinctInstances</emphasis> in the most simple scenarios. The two examples below create a collection which contains three equivalence classes.
+  <programlisting language="cs">
+    <![CDATA[EquivalenceClasses = new EquivalenceClassCollection<Foo>(
+      new EquivalenceClass<Foo>(
+        new Foo(1),
+        new Foo("One"),
+        new Foo(Digit.One)),
+      new EquivalenceClass<Foo>(
+        new Foo(2),
+        new Foo("Two"),
+        new Foo(Digit.Two)),
+      new EquivalenceClass<Foo>(
+        new Foo(3),
+        new Foo("Three"),
+        new Foo(Digit.Three)))
+    }]]></programlisting>
+  The static factory method does not allow the equivalence classes to contain more than one instance each:
+  <programlisting language="cs">
+    <![CDATA[EquivalenceClasses = EquivalenceClassCollection<Foo>.FromDistinctInstances(
+      new Foo(1),
+      new Foo(2),
+      new Foo(3))]]></programlisting>
+  </para>
+  <para>
+    The verifier adds at runtime, five test methods to the test fixture:<itemizedlist>
+    <listitem>
+      <para>
+        <emphasis role="bold">ObjectEquals</emphasis> verifies that the method <emphasis role="bold">bool Object.Equals(object obj)</emphasis> behaves as expected. Your type should indeed override that method to provide appropriate equality results, even when it is boxed as a <emphasis role="bold">System.Object</emphasis>.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis role="bold">ObjectGetHashCode</emphasis> verifies that the method <emphasis role="bold">int Object.GetHashCode()</emphasis> behaves as expected. Your type should override that method and return the same hash value for objects equal together.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis role="bold">EquatableEquals</emphasis> verifies that the method <emphasis role="bold">bool Equals(TTarget other)</emphasis> works correctly. The implementation of that method is required by the generic equatable interface.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis role="bold">OperatorEquals</emphasis> verifies the equality operator (==) behaves as expected for the tested type. You must overload the static equality operator to make it pass. The static equality operator has the following syntax:
+        <programlisting language="cs">
+        <![CDATA[ public static bool operator ==(TTarget left, TTarget right)]]>
+        </programlisting>
+        Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        <emphasis role="bold">OperatorNotEquals</emphasis> verifies the inequality operator (!=) behaves as expected for the tested type. You must overload the static inequality operator to make it pass. The static equality operator has the following syntax:
+        <programlisting language="cs">
+        <![CDATA[ public static bool operator !=(TTarget left, TTarget right)]]>
+        </programlisting>
+        Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+      </para>
+    </listitem>
   </para>
   <mediaobject>
     <imageobject>
