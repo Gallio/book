@@ -96,40 +96,42 @@
       new Foo(3))]]></programlisting>
   </para>
   <para>
-    The verifier adds at runtime, five test methods to the test fixture:<itemizedlist>
-    <listitem>
-      <para>
-        <emphasis role="bold">ObjectEquals</emphasis> verifies that the method <emphasis role="bold">bool Object.Equals(object obj)</emphasis> behaves as expected. Your type should indeed override that method to provide appropriate equality results, even when it is boxed as a <emphasis role="bold">System.Object</emphasis>.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        <emphasis role="bold">ObjectGetHashCode</emphasis> verifies that the method <emphasis role="bold">int Object.GetHashCode()</emphasis> behaves as expected. Your type should override that method and return the same hash value for objects equal together.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        <emphasis role="bold">EquatableEquals</emphasis> verifies that the method <emphasis role="bold">bool Equals(TTarget other)</emphasis> works correctly. The implementation of that method is required by the generic equatable interface.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        <emphasis role="bold">OperatorEquals</emphasis> verifies the equality operator (==) behaves as expected for the tested type. You must overload the static equality operator to make it pass. The static equality operator has the following syntax:
-        <programlisting language="cs">
-        <![CDATA[ public static bool operator ==(TTarget left, TTarget right)]]>
-        </programlisting>
-        Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        <emphasis role="bold">OperatorNotEquals</emphasis> verifies the inequality operator (!=) behaves as expected for the tested type. You must overload the static inequality operator to make it pass. The static equality operator has the following syntax:
-        <programlisting language="cs">
-        <![CDATA[ public static bool operator !=(TTarget left, TTarget right)]]>
-        </programlisting>
-        Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
-      </para>
-    </listitem>
+    The verifier adds at runtime, five test methods to the test fixture:
+    <itemizedlist>
+      <listitem>
+        <para>
+          <emphasis role="bold">ObjectEquals</emphasis> verifies that the method <emphasis role="bold">bool Object.Equals(object obj)</emphasis> behaves as expected. Your type should indeed override that method to provide appropriate equality results, even when it is boxed as a <emphasis role="bold">System.Object</emphasis>.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">ObjectGetHashCode</emphasis> verifies that the method <emphasis role="bold">int Object.GetHashCode()</emphasis> behaves as expected. Your type should override that method and return the same hash value for objects equal together.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">EquatableEquals</emphasis> verifies that the method <emphasis role="bold">bool Equals(TTarget other)</emphasis> works correctly. The implementation of that method is required by the generic equatable interface.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">OperatorEquals</emphasis> verifies the equality operator (==) behaves as expected for the tested type. You must overload the static equality operator to make it pass. The static equality operator has the following syntax:
+          <programlisting language="cs">
+          <![CDATA[ public static bool operator ==(TTarget left, TTarget right)]]>
+          </programlisting>
+          Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">OperatorNotEquals</emphasis> verifies the inequality operator (!=) behaves as expected for the tested type. You must overload the static inequality operator to make it pass. The static equality operator has the following syntax:
+          <programlisting language="cs">
+          <![CDATA[ public static bool operator !=(TTarget left, TTarget right)]]>
+          </programlisting>
+          Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        </para>
+      </listitem>
+    </itemizedlist>
   </para>
   <mediaobject>
     <imageobject>

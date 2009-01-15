@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+// Copyright 2005-2008 Gallio Project - http://www.gallio.org/
+// Portions Copyright 2000-2004 Jonathan De Halleux, Jamie Cansdale
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+-->
+<chapter version="5.0"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <title>Extensing MbUnit</title>
+  <para>
+    This chapter explains how to extend MbUnit with new features such as custom metadata, test
+    decorators, and new data sources,.
+  </para>
+  <section>
+    <title>How MbUnit Works</title>
+    <para>
+      Ever wonder how MbUnit attributes work?  Well, it's nothing too special.  Each attribute is
+      just an ordinary .Net class with some code that defines how it contributes to the semantics of
+      the test cases.  So we can define new attributes by subclassing the appropriate built-in
+      attributes and providing different semantics.
+    </para>
+    <para>
+      Likewise, MbUnit assertions are quite literally just a collection of static methods defined on
+      the <code>Assert</code> class.  However, the assertion methods follow an implementation
+      pattern that is designed to improve the consistency and readability of assertion failure
+      messages when things go wrong.  While it's not possible to add new methods to the <code>Assert</code>
+      class itself, we can certainly create new assertions methods within our own custom assertion
+      class.
+    </para>
+    <para>
+      Some features, like the automatic conversion of test argument values from one type to another,
+      work by resolving services registered with the Gallio Runtime.  New services, such as
+      data type converts, can be defined by creating a simple Gallio Plugin.
+    </para>
+    <para>
+      Pretty much everything in MbUnit can be extended in some way.  The following sections explain
+      some of the mechanisms involved.  You may also find it useful to download the MbUnit source code
+      to see how it works.
+    </para>
+  </section>
+  <section>
+    <title>How to create an MbUnit attribute</title>
+    <para>
+      TODO
+      </para>
+  </section>
+  <section>
+    <title>How to create an MbUnit assertion</title>
+    <para>
+      TODO
+    </para>
+  </section>
+  <section>
+    <title>How to create an MbUnit data source</title>
+    <para>
+      TODO
+    </para>
+  </section>
+  <section>
+    <title>How to create a custom type converter and formatter</title>
+    <para>
+      TODO
+    </para>
+  </section>
+</chapter>

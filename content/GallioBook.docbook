@@ -25,7 +25,7 @@
       <author><personname>Julián Hidalgo</personname></author>
     </authorgroup>
     <copyright>
-      <year>2008</year>
+      <year>2009</year>
       <holder>Gallio Project</holder>
     </copyright>
     <address>http://www.gallio.org/</address>
@@ -43,5 +43,5 @@
   <xi:include href="FrameworkAdapters/Part.docbook" />
   <xi:include href="Runners/Part.docbook" />
   <xi:include href="Tools/Part.docbook" />
-  <xi:include href="Extensibility/Part.docbook" />
+  <xi:include href="DeveloperGuide/Part.docbook" />
 </book>

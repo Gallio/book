@@ -11,6 +11,7 @@
   <xi:include href="DatabaseTesting/Chapter.docbook" />
   <xi:include href="Recipes/Chapter.docbook" />
   <xi:include href="ContractVerifiers/Chapter.docbook" />
+  <xi:include href="ExtendingMbUnit/Chapter.docbook" />
   <xi:include href="Troubleshooting/Chapter.docbook" />
   <xi:include href="MigrationGuide/Chapter.docbook" />
 </part>

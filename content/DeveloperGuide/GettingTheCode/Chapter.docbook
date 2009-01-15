@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter version="5.0"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Getting the Code</title>
+  <para>
+    This chapter explains how to get the Gallio source code, build a local copy, and test it.  If
+    you intend to participate in the development of the Gallio Project, start here!
+  </para>
+  <para>
+    Gallio is intended to support many extensions without requiring direct modification of its code.
+   (We attempt to follow the Open-Closed Principle of software development.)  Consequently, if your
+   purpose is to develop a new extension, you probably do not need to get the source code; unless you
+   want to...  
+  </para>
+  <section>
+    <title>Prerequisites</title>
+    <para>
+      To build Gallio locally and work with the source code effectively, you will need to install
+      some tools.  Some tools are optional: if they are missing, you can still perform a local build but
+      it will be missing certain extensions.  Several tools are included in the source tree itself
+      for convenience: they are not listed here.
+    </para>
+    <section>
+      <title>Required Software</title>
+      <itemizedlist>
+        <listitem>
+          <para>A <package>Subversion</package> client</para>
+          <note><para>We recommend <package>TortoiseSVN</package> for Windows systems but any client will
+            do.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>.Net Framework 3.5</package></para>
+          <note><para>If you have everything else installed then you probably already have
+            this...</para></note>
+        </listitem>
+        <listitem>
+          <para><package>Visual Studio 2008 SP1</package></para>
+          <note><para>Strongly recommended for working with Gallio source code effectively.  Older versions of Visual Studio will not
+            work.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>PowerShell</package></para>
+          <note><para>Required to run a few of the helper scripts as well as for building and
+            testing the
+            PowerShell extensions.</para></note>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title>Optional Software</title>
+      <itemizedlist>
+        <listitem>
+          <para><package>Visual Studio 2008 SDK</package></para>
+          <note><para>Required to build and test the Visual Studio 2008 extensions as well as the
+            integrated help documentation.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>Debugging Tools for Windows</package></para>
+          <note><para>Required to generate Source Server annotations in the PDBs.  This feature
+            enables users to automatically download Gallio source code from within the Visual Studio
+            debugger when Source Server support is enabled.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>Perl</package></para>
+          <note><para>Requires by the Source Server scripts in the Debugging Tools for
+            Windows package.  The ActivePerl package for Windows works fine.  You can strip out all
+            of the documentation, examples and optional services.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>Visual Studio 2010</package></para>
+          <note><para>Required for building and testing the experimental Visual Studio 2010 extensions.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>ReSharper v3.1, v4.0 and/or v4.1</package></para>
+          <note><para>Required for building and testing the ReSharper extensions.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>Pex</package></para>
+          <note><para>Required for building and testing the Pex extensions.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>NCover v2</package></para>
+          <note><para>Required for building and testing the NCover v2 extensions.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>TypeMock v5</package></para>
+          <note><para>Required for building and testing the TypeMock v5 extensions.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>Microsoft FXCop 1.36</package></para>
+          <note><para>Required for code analysis in Release builds.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>TestDriven.Net v2.18</package> (or newer)</para>
+          <note><para>Useful for running tests in Visual Studio but not required for builds.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>AutoCAD</package></para>
+          <note><para>Required for testing the AutoCAD extensions.</para></note>
+        </listitem>
+        <listitem>
+          <para><package>Mono v1.9.1</package> (or newer)</para>
+          <note><para>Required for testing the Mono runtime support.</para></note>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+  <section>
+    <title>Checking out the Source Code</title>
+    <para>
+      The source code is hosted on Google Code.  Using your Subversion client, check out 
+      one of the following repositories:
+      <itemizedlist>
+        <listitem>
+          <para>Gallio and MbUnit v3 Source: <link
+            xlink:href="http://mb-unit.googlecode.com/svn/trunk/v3">http://mb-unit.googlecode.com/svn/trunk/v3</link></para>
+        </listitem>
+        <listitem>
+          <para>Gallio Book: <link
+            xlink:href="http://mb-unit.googlecode.com/svn/trunk/Book">http://mb-unit.googlecode.com/svn/trunk/Book</link></para>
+        </listitem>
+        <listitem>
+          <para>Gallio and MbUnit WebSite: <link
+            xlink:href="http://mb-unit.googlecode.com/svn/trunk/WebSites">http://mb-unit.googlecode.com/svn/trunk/WebSites</link></para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      If you are a committer, you must use <emphasis>https</emphasis> and specify your Google user
+      id and generated Google Code password.  This is <emphasis>not</emphasis> the same as your
+      orginary Google password.
+    </para>
+    <para>
+      For more information visit: <link
+        xlink:href="http://code.google.com/p/mb-unit/source/checkout">http://code.google.com/p/mb-unit/source/checkout</link>.
+    </para>
+  </section>
+  <section>
+    <title>Working with the Gallio and MbUnit v3 Source Code</title>
+    <para>
+      This section explains how to work with Gallio and MbUnit v3 source code.
+      We will assume you have checked out the source code from Subversion into the
+      <filename>C:\Source\Gallio</filename>
+      folder but you can put it anywhere you like.
+    </para>
+    <section>
+      <title>How to Run a Build</title>
+      <para>
+        Probably the first thing you will want to do is to run a build to be sure everything has
+        been checked out.  Fortunately this is quite easy:
+      </para>
+      <screen>
+        > cd C:\Source\Gallio
+        > Build
+      </screen>
+      <para>
+        After a little while, you should get some binaries created in the
+        <filename>C:\Source\Gallio\build\image</filename> folder.  You can run Gallio directly from
+        that location if you like, or create an installer.
+      </para>
+      <screen>
+        > Build /dist
+      </screen>
+      <para>
+        To clean up the contents of the build folder, run the following command:
+      </para>
+      <screen>
+        > Build /clean
+      </screen>
+      <para>
+        The Build.bat command has many other options.  Here are a few more interesting combinations.
+      </para>
+      <screen>
+        > Build /?
+        > Build /test
+        > Build /clean /build /image /test /dist
+        > Build /configuration Release
+        > Build /version 3.1.0.0
+        > Build /verbosity detailed
+      </screen>
+    </section>
+    <section>
+      <title>Understanding the Source Tree</title>
+      <para>
+        The source tree layout reflects the modules that make up Gallio.
+      </para>
+      <table>
+        <title>Source Tree Layout</title>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry>Path</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><filename>/bin</filename></entry>
+              <entry>Scripts used to build Gallio.</entry>
+            </row>
+            <row>
+              <entry><filename>/build</filename></entry>
+              <entry>An automatically created folder that contains the output from the build.  This
+                folder is deliberately not checked into Subversion.</entry>
+            </row>
+            <row>
+              <entry><filename>/compat</filename></entry>
+              <entry>Modules used to perform code analysis with FxCop and to compare new and old versions of Gallio
+                with LibCheck to help identify binary compatibility issues.</entry>
+            </row>
+            <row>
+              <entry><filename>/docs</filename></entry>
+              <entry>A little documentation about how to work with the source tree.</entry>
+            </row>
+            <row>
+              <entry><filename>/libs</filename></entry>
+              <entry>Shared libraries used by multiple Gallio components.  Libraries used by only
+                one component are generally stored in private "libs" folders within that component's
+                folder.
+              </entry>
+            </row>
+            <row>
+              <entry><filename>/src</filename></entry>
+              <entry>Root of the source tree.</entry>
+            </row>
+            <row>
+              <entry><filename>/src/Gallio</filename></entry>
+              <entry>Gallio core runtime, base libraries and tests.</entry>
+            </row>
+            <row>
+              <entry><filename>/src/MbUnit</filename></entry>
+              <entry>MbUnit v3 framework and tests.</entry>
+            </row>
+            <row>
+              <entry><filename>/src/Installer.Wix</filename></entry>
+              <entry>The Gallio installer packages built using the WiX compiler.</entry>
+            </row>
+            <row>
+              <entry><filename>/src/Extensions</filename></entry>
+              <entry>Contains all optional extensions to Gallio including all of the standard tools.
+               Each one is held is a separate folder.</entry>
+            </row>
+            <row>
+              <entry><filename>/tools</filename></entry>
+              <entry>Third party tools and dependencies used to build Gallio.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>Working with the Solution</title>
+      <para>
+        First, open up the <filename>All.sln</filename> with Visual Studio 2008.  If you are working with Visual Studio
+        2010, use <filename>All.vs2010.sln</filename>.
+      </para>
+      <para>
+        The first thing to notice is that there are <emphasis>many</emphasis> projects due to the
+        large number of extensions.  The projects have been grouped into Solution Folders by type
+        and purpose.  These folders mirror the structure of the code in the source tree. 
+      </para>
+      <para>
+        Some projects may not load correctly because they depend on third-party tools that are not
+        installed.  This is normal.  If you choose to install one or more of these tools later, be
+        sure to reopen the solution.
+      </para>
+      <important>
+        <para>The projects have been customized by hand editing of the <filename>*.csproj</filename>
+        files.</para>
+      </important>
+      <para>When creating a new project, be sure to perform the following steps:</para>
+      <orderedlist>
+        <listitem>
+          <para>Create the project within the appropriate folder of the build tree.  When creating
+          a new extension, be sure to give it its own folder.</para>
+        </listitem>
+        <listitem>
+          <para>Change the output path for the project in both the Debug and Release configuration
+            to <emphasis><filename>bin</filename></emphasis>.</para>
+        </listitem>
+        <listitem>
+          <para>Enable the <emphasis>Warnings as Errors</emphasis> option in both the Debug and
+            Release configuration.</para>
+        </listitem>
+        <listitem>
+          <para>Delete the [AssemblyVersion] and [AssemblyFileVersion] attributes from
+            <filename>AssemblyInfo.cs</filename>.  Customize the other attributes as appropriate. 
+            Be sure to look at how the attributes in other Gallio projects have been set.</para>
+        </listitem>
+        <listitem>
+          <para>Save the project.</para>
+        </listitem>
+        <listitem>
+          <para>Edit the <filename>*.csproj</filename> <package>Visual Studio</package> project file.</para>
+          <para>If the assembly must be signed then include the following elements in the first
+          PropertyGroup element:
+            <literallayout><![CDATA[<SignAssembly>true</SignAssembly>
+              <AssemblyOriginatorKeyFile>..\..\Key.snk</AssemblyOriginatorKeyFile>
+              ]]></literallayout>
+          </para>
+          <tip><para>Compare against other projects for examples.</para></tip>
+        </listitem>
+        <listitem>
+          <para>Include the project in a <filename>*.module</filename> <package>MetaBuild</package> module file.  If the project is part
+          of a new component, then you might need to create a new module file to describe it.
+          Be sure to specify items for files to be copied, XML documentation to be preprocessed, and
+          tests to be executed.</para>
+          <tip><para>Compare against other modules for examples or read the
+            <package>MetaBuild</package> build system documentation.</para></tip>
+        </listitem>
+        <listitem>
+          <para>Include the project in a <filename>*.wxs</filename> <package>WiX</package> package
+            fragment file.  If the project is part
+            of a new component, then you might need to create a new fragment to describe it.</para>
+          <tip><para>Compare against other package fragments for examples or read the
+            <package>WiX</package> installer compiler documentation.  Also be sure to give each WiX
+          compnent a unique GUID.</para></tip>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Running Tests in Visual Studio</title>
+      <para>
+        The easiest way to run tests for Gallio within the IDE is to install TestDriven.Net.  Then run the following
+        script from the command-line to register the Gallio TestDriven.Net extensions from within the source tree.
+      </para>
+      <screen>
+        > src\Extensions\TDNet\Install-TDNetRunner.bat
+      </screen>
+      <para>
+        Once the extensions have been registered, you should be able to run tests directly from
+        Visual Studio using the TestDriven.Net <emphasis>Run Tests</emphasis> command.  To run tests
+        with the debugger, use <emphasis>Test With... Debugger</emphasis>.
+      </para>
+      <para>
+        For efficiency, TestDriven.Net will keep Gallio in memory across multiple test runs.  Occasionally this will
+        cause problems when performing a build from Visual Studio because one or more of the
+        assemblies is still in use.  To ensure TestDriven.Net releases its hold on these files, be
+        sure to close the TestDriven.Net agent (right-click on the rocket ship icon in the system tray) beforehand.  
+      </para>
+      <tip>
+        <para>
+          When developing Gallio, we recommend uninstalling any copy you may previously have
+          downloaded and installed.  Installed Gallio features, such as the ReSharper extensions,
+          may conflict with the development copy of Gallio in the source tree and result in crashes,
+          locked files, or other unusual behavior! 
+        </para>
+      </tip>
+    </section>
+  </section>
+  <section>
+    <title>Working with the Gallio Book</title>
+    <para>
+      This section explains how to work with Gallio Book content.
+      We will assume you have checked out the source code from Subversion into the
+      <filename>C:\Source\GallioBook</filename> folder but you can put it anywhere you like.
+    </para>
+    <tip><para>You will need a good XML editor.  We recommend oXygen because it comes bundled with
+      DocBook support and is relatively cheap but any editor will do...</para></tip>
+    <section>
+      <title>How to Run a Build</title>
+      <para>
+        Building the book is much like building the Gallio and MbUnit v3 source code since it uses the
+        same underlying collection of scripts.  Most of the time, this is all you will need to do.
+      </para>
+      <screen>
+        > cd C:\Source\GallioBook
+        > Build
+      </screen>
+      <para>
+        The resulting compiled documentation (in several different formats) will be placed in the <filename>/build/image</filename> folder
+        within the source tree.
+      </para>
+    </section>
+    <section>
+      <title>Working with DocBook</title>
+      <para>
+        The book is arranged in a tree of folders corresponding to its parts and chapters.  Files
+        and other dependent resources are generally stored in the same folder as their associated
+        fragments.  These fragments are composed together hierarchically using XInclude tags. 
+      </para>
+      <para>
+        For more information about DocBook, visit the DocBook website: <link
+          xlink:href="http://www.docbook.org/">http://www.docbook.org/</link>.
+      </para>
+    </section>
+  </section>
+  <section>
+    <title>Working with the Gallio Web Site Projects</title>
+    <para>
+      This section explains how to work with Gallio Web Site content.
+      We will assume you have checked out the source code from Subversion into the
+      <filename>C:\Source\GallioWebSites</filename> folder but you can put it anywhere you like.
+    </para>
+    <para>
+      The web sites are just ordinary ASP.Net projects implemented in C#.
+    </para>
+    <section>
+      <title>How to Run a Build</title>
+      <para>
+        Building the web sites is much like building the Gallio and MbUnit v3 source code since it uses the
+        same underlying collection of scripts.  Most of the time, this is all you will need to do.
+      </para>
+      <screen>
+        > cd C:\Source\GallioWebSites
+        > Build
+      </screen>
+      <para>
+        The resulting compiled web sites will be placed in the <filename>/build/image</filename> folder
+        within the source tree.
+      </para>
+    </section>
+  </section>
+</chapter>
