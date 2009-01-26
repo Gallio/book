@@ -18,13 +18,12 @@
 <chapter version="5.0"
     xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:svg="http://www.w3.org/2000/svg"
-    xmlns:mml="http://www.w3.org/1998/Math/MathML">
+    xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Contract Verifiers</title>
-  <partintro>
-    <para>The contract verifiers are built-in test fixtures for very common contractual objects such as custom exceptions or types implementing the generic IEquatable interface. A contract verifier is a complete and configurable test suite. It automatically enables several test methods which evaluate exhaustively the functionalities and the behaviors of your custom contractual type.</para>
-    <para>The contract verifiers are declared as public read-only fields of your test fixture. They are marked by the special attribute <emphasis role="bold">ContractVerifer</emphasis> as well. An hypothetical declaration of a contract verifier for the <emphasis role="bold">Foo</emphasis> contract would be declared like this:</para>
+  <section>
+    <title>What are contract verifiers?</title>
+    <para>The contract verifiers are built-in test fixtures for very common contractual objects such as custom exceptions or types implementing the generic <emphasis role="bold">IEquatable</emphasis> interface. A contract verifier is a complete and configurable test suite. It automatically enables several test methods which evaluate exhaustively the functionalities and the behaviors of your custom contractual type.</para>
+    <para>The contract verifiers are declared as public read-only fields of your test fixture. They are marked by the special attribute <emphasis role="bold">VerifyContract</emphasis> as well. An hypothetical declaration of a contract verifier for the <emphasis role="bold">Foo</emphasis> contract would be declared like this:</para>
     <programlisting language="cs">
     <![CDATA[using System;
     using MyLibrary;
@@ -36,8 +35,8 @@
       [TestFixture]
       public class MyFooTest
       {
-        [ContractVerifier]
-        public readonly IContractVerifier FooTests = new VerifyFooContract()
+        [VerifyContract]
+        public readonly IContract FooTests = new FooContract
         {
           Option1 = value1,
           Option2 = value2
@@ -45,9 +44,9 @@
       }
     }]]></programlisting>
     <para>Remark the different named options set at the declaration of the contract verifier. Those options are used to configure the contract verifier. They also make it more flexible by letting you enable or disable certain features at your convenience.</para>
-    <para>The current version of MbUnit v3 provides the following built-in contract verifiers:</para>
-  </partintro>
-  <xi:include href="ExceptionContractVerifier/Section.docbook" />
-  <xi:include href="EqualityContractVerifier/Section.docbook" />
-  <xi:include href="ComparisonContractVerifier/Section.docbook" />
+  </section>
+  <xi:include href="ExceptionContract/Section.docbook" />
+  <xi:include href="EqualityContract/Section.docbook" />
+  <xi:include href="ComparisonContract/Section.docbook" />
+  <xi:include href="ImmutabilityContract/Section.docbook" />
 </chapter>

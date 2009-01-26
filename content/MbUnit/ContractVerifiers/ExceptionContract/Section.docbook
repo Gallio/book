@@ -18,15 +18,13 @@
 <section version="5.0"
     xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:svg="http://www.w3.org/2000/svg"
-    xmlns:mml="http://www.w3.org/1998/Math/MathML">
+    xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>The Exception Contract Verifier</title>
   <para>
     The Exception Contract Verifier adds to a fixture, several tests which evaluate a custom user exception. The contract verifier is declared as a public read-only field of the test fixture. It has the following specifications:
   </para>
   <programlisting language="cs">
-    <![CDATA[public class VerifyExceptionContract<TException> : IContractVerifier
+    <![CDATA[public class ExceptionContract<TException> : IContract
       : where TException : Exception
     {
       public bool ImplementsOperatorOverloads
@@ -55,8 +53,8 @@
         [TestFixture]
         public class MyExceptionTest
         {
-          [ContractVerifier]
-          public readonly IContractVerifer ExceptionTests = new VerifierExceptionContract<MyException>()
+          [VerifyContract]
+          public readonly IContract ExceptionTests = new ExceptionContract<MyException>
           {
             ImplementsSerialization = true; // Optional (default is true)
             ImplementsStandardConstructors = true; // Optional (default is true)
@@ -80,17 +78,17 @@
     </listitem>
      <listitem>
       <para>
-        <emphasis role="bold">IsDefaultConstructorWellDefined</emphasis> verifies that a public default constructor is present. If the property <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Setting the property <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        <emphasis role="bold">DefaultConstructor</emphasis> verifies that a public default constructor is present. If the property <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Setting the property <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
       </para>
     </listitem>
      <listitem>
       <para>
-        <emphasis role="bold">IsMessageConstructorWellDefined</emphasis> verifies that a public constructor with one single parameter for the message is present. If the property <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Setting the property <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        <emphasis role="bold">MessageConstructor</emphasis> verifies that a public constructor with one single parameter for the message is present. If the property <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Setting the property <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
       </para>
     </listitem>
      <listitem>
       <para>
-        <emphasis role="bold">IsMessageAndInnerExceptionConstructorWellDefined</emphasis> verifies that a public constructor with two parameters for the message and the inner exception is present. If the property <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Setting the property <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        <emphasis role="bold">MessageAndInnerExceptionConstructor</emphasis> verifies that a public constructor with two parameters for the message and the inner exception is present. If the property <emphasis role="bold">ImplementsSerialization</emphasis> was not set to false, it verifies that the message and the inner exception properties are preserved by a roundtrip serialization as well. Setting the property <emphasis role="bold">ImplementsStandardConstructors</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
       </para>
     </listitem>
     </itemizedlist>

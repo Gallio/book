@@ -18,15 +18,13 @@
 <section version="5.0"
     xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:svg="http://www.w3.org/2000/svg"
-    xmlns:mml="http://www.w3.org/1998/Math/MathML">
+    xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>The Equality Contract Verifier</title>
   <para>
     The Equality Contract Verifier adds to a fixture, several tests which evaluate the correct implementation of the genertic interface <emphasis role="bold">System.IEquatable</emphasis>. The contract verifier is declared as a public read-only field of the test fixture. It has the following specifications:
   </para>
   <programlisting language="cs">
-    <![CDATA[public class VerifyEqualityContract<TTarget> : IContractVerifier
+    <![CDATA[public class EqualityContract<TTarget> : IContract
         where TTarget : IEquatable<TTarget>
     {
       public bool ImplementsOperatorOverloads
@@ -55,14 +53,16 @@
         [TestFixture]
         public class FooTest
         {
-          [ContractVerifier]
-          public readonly IContractVerifer EqualityTests = new VerifierEqualityContract<Foo>()
+          [VerifyContract]
+          public readonly IContract EqualityTests = new EqualityContract<Foo>
           {
             ImplementsOperatorOverloads = true; // Optional (default is true)
-            EquivalenceClasses = EquivalenceClassCollection<Foo>.FromDistinctInstances(
-              new Foo(1),
-              new Foo(2),
-              new Foo(3))
+            EquivalenceClasses =
+            {
+              { new Foo(1) },
+              { new Foo(2) },
+              { new Foo(3) }
+            }
           };
         }
     }]]></programlisting>
@@ -72,28 +72,29 @@
   <para>The property <emphasis role="bold">EquivalenceClasses</emphasis> is mandatory. It feeds the contract verifier with various valid object instances grouped by equivalence classes. An equivalence class contains a collection of distinct objects which are expected to be equal together (in the sense of your implementation of the equality for the tested type.) Instances contained in different equivalence classes are expected to be not equal. The equivalence classes make possible the contract verifier to test both for equality and inequality between objects. Thus, it is important to feed appropriately the contract verifier with a set of relevant and common objects based on real use cases. Null references are not considered as a valid input for an equivalence class. Indeed, the test engine determines automatically whether the tested type is nullable, and modifies the necessary tests accordingly.
   </para>
   <para>
-  There are two possible ways to construct and initialize a collection of equivalence classes. You can either use directly the constructor, or the static factory method <emphasis role="bold">FromDistinctInstances</emphasis> in the most simple scenarios. The two examples below create a collection which contains three equivalence classes.
+  There are two possible ways to construct and initialize a collection of equivalence classes. You can either use the list initializer syntax or directly the constructor. The two examples below create a collection which contains three equivalence classes.
+  <programlisting language="cs">
+    <![CDATA[EquivalenceClasses =
+    {
+      { new Foo(1),
+        new Foo("One"),
+        new Foo(Digit.One) },
+      { new Foo(2),
+        new Foo("Two"),
+        new Foo(Digit.Two) },
+      { new Foo(3),
+        new Foo("Three"),
+        new Foo(Digit.Three) }
+    }]]></programlisting>
+  The constructor does not allow the equivalence classes to contain more than one instance each. 
   <programlisting language="cs">
     <![CDATA[EquivalenceClasses = new EquivalenceClassCollection<Foo>(
-      new EquivalenceClass<Foo>(
-        new Foo(1),
-        new Foo("One"),
-        new Foo(Digit.One)),
-      new EquivalenceClass<Foo>(
-        new Foo(2),
-        new Foo("Two"),
-        new Foo(Digit.Two)),
-      new EquivalenceClass<Foo>(
-        new Foo(3),
-        new Foo("Three"),
-        new Foo(Digit.Three)))
-    }]]></programlisting>
-  The static factory method does not allow the equivalence classes to contain more than one instance each:
-  <programlisting language="cs">
-    <![CDATA[EquivalenceClasses = EquivalenceClassCollection<Foo>.FromDistinctInstances(
       new Foo(1),
       new Foo(2),
       new Foo(3))]]></programlisting>
+  The constructor might still be useful in the case you want to feed the collection with an existing enumeration of distinct objects.
+  <programlisting language="cs">
+    <![CDATA[EquivalenceClasses = new EquivalenceClassCollection<Foo>(MyDistinctInstanceProvider())]]></programlisting>
   </para>
   <para>
     The verifier adds at runtime, five test methods to the test fixture:
@@ -105,7 +106,7 @@
       </listitem>
       <listitem>
         <para>
-          <emphasis role="bold">ObjectGetHashCode</emphasis> verifies that the method <emphasis role="bold">int Object.GetHashCode()</emphasis> behaves as expected. Your type should override that method and return the same hash value for objects equal together.
+          <emphasis role="bold">HashCode</emphasis> verifies that the method <emphasis role="bold">int Object.GetHashCode()</emphasis> behaves as expected. Your type should override that method and return the same hash value for objects equal together.
         </para>
       </listitem>
       <listitem>
