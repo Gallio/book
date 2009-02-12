@@ -24,7 +24,8 @@
     The Equality Contract Verifier adds to a fixture, several tests which evaluate the correct implementation of the genertic interface <emphasis role="bold">System.IEquatable</emphasis>. The contract verifier is declared as a public read-only field of the test fixture. It has the following specifications:
   </para>
   <programlisting language="cs">
-    <![CDATA[public class EqualityContract<TTarget> : IContract
+    <![CDATA[
+    public class EqualityContract<TTarget> : IContract
         where TTarget : IEquatable<TTarget>
     {
       public bool ImplementsOperatorOverloads
@@ -43,7 +44,8 @@
     A simple and typical usage is:
   </para>
   <programlisting language="cs">
-    <![CDATA[using System;
+    <![CDATA[
+    using System;
     using MyLibrary;
     using MbUnit.Framework;
     using MbUnit.Framework.ContractVerifiers;

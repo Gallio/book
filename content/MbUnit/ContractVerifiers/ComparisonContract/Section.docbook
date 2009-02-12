@@ -21,7 +21,103 @@
     xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>The Comparison Contract Verifier</title>
   <para>
-    TODO
+    The Comparison Contract Verifier adds to a fixture, several tests which evaluate the correct implementation of the genertic interface <emphasis role="bold">System.IComparable</emphasis>. The contract verifier is declared as a public read-only field of the test fixture. It works very similarily to the equality contract verifier. It has the following specifications:
+  </para>
+  <programlisting language="cs">
+    <![CDATA[
+    public class ComparisonContract<TTarget> : IContract
+        where TTarget : IComparable<TTarget>
+    {
+      public bool ImplementsOperatorOverloads
+      {
+        get;
+        set;
+      }
+      
+      public EquivalenceClassCollection<TTarget> EquivalenceClasses
+      {
+          get;
+          set;
+      }
+    }]]></programlisting>
+  <para>
+    A simple and typical usage is:
+  </para>
+  <programlisting language="cs">
+    <![CDATA[
+    using System;
+    using MyLibrary;
+    using MbUnit.Framework;
+    using MbUnit.Framework.ContractVerifiers;
+
+    namespace MyLibrary.Test
+    {
+        [TestFixture]
+        public class FooTest
+        {
+          [VerifyContract]
+          public readonly IContract ComparisonTests = new ComparisonContract<Foo>
+          {
+            ImplementsOperatorOverloads = true; // Optional (default is true)
+            EquivalenceClasses =
+            {
+              { new Foo(1) },
+              { new Foo(2) },
+              { new Foo(3) }
+            }
+          };
+        }
+    }]]></programlisting>
+  <para>
+    The contract verifier takes one single required type parameter defining the type of the tested comparable type; <emphasis role="bold">Foo</emphasis>, in the example above. The optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> disables some of the test methods described below.
+  </para>
+  <para>The property <emphasis role="bold">EquivalenceClasses</emphasis> is mandatory. It feeds the contract verifier with various valid object instances grouped by equivalence classes. Unlike for the equality contract verifier, the order in which the equivalence classes are specified is important for the comparison contract verifier. Equivalence classes are expected to be declared in the ascendent order. Every object in a given equivalence class is expected to be greater than the objects contained in a previous class, and less than the objects in the next classes.
+  </para>
+  <para>
+    The verifier adds at runtime, five test methods to the test fixture:
+    <itemizedlist>
+      <listitem>
+        <para>
+          <emphasis role="bold">ComparableCompareTo</emphasis> verifies that the method <emphasis role="bold">int CompareTo(TTarget obj)</emphasis> behaves as expected. Your type should indeed implement that method to provide appropriate comparison results.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">OperatorGreaterThan</emphasis> verifies that the "Greater Than" operator (&gt;) behaves as expected for the tested type. You must overload the static operator to make it pass. The operator has the following syntax:
+          <programlisting language="cs">
+          <![CDATA[ public static int operator >(TTarget left, TTarget right)]]>
+          </programlisting>
+          Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">OperatorGreaterThanOrEqual</emphasis> verifies that the "Greater Than Or Equal" operator (&gt;=) behaves as expected for the tested type. You must overload the static operator to make it pass. The operator has the following syntax:
+          <programlisting language="cs">
+          <![CDATA[ public static int operator >=(TTarget left, TTarget right)]]>
+          </programlisting>
+          Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">OperatorLessThan</emphasis> verifies that the "Less Than" operator (&lt;) behaves as expected for the tested type. You must overload the static operator to make it pass. The operator has the following syntax:
+          <programlisting language="cs">
+          <![CDATA[ public static int operator <(TTarget left, TTarget right)]]>
+          </programlisting>
+          Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">OperatorLessThanOrEqual</emphasis> verifies that the "Less Than Or Equal" operator (&lt;=) behaves as expected for the tested type. You must overload the static operator to make it pass. The operator has the following syntax:
+          <programlisting language="cs">
+          <![CDATA[ public static int operator <=(TTarget left, TTarget right)]]>
+          </programlisting>
+          Setting the optional property <emphasis role="bold">ImplementsOperatorOverloads</emphasis> to <emphasis role="bold">false</emphasis> in the definition of the contract verifier, deactivates that test.
+        </para>
+      </listitem>
+    </itemizedlist>
   </para>
   <mediaobject>
     <imageobject>
