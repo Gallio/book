@@ -4,6 +4,91 @@
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Understanding the Gallio Architecture</title>
-  <para>Before we can begin to extend Gallio, we must first understand how it has been constructed
-    and how the various pieces fit together.</para>
+  <para>Gallio, as a platform, is built up in layers.</para>
+  <para>
+    TODO, include diagram here...
+  </para>
+  <section>
+    <title>Gallio Runtime</title>
+    <para>
+      The Gallio Runtime is the subsystem responsible for initializing Gallio-based applications such as
+      test runners, managing global configuration parameters, loading plugins, and enumerating services.
+      It binds the whole platform together.
+    </para>
+    <para>
+      At its core, the runtime is essentially a service locator or inversion of control container.  It reads declarations of
+      components from plugin metadata files and provides a factory for instantiating them on demand.  It also
+      tracks the lifecycle of components such that they can be decommissioned (disposed) gracefully
+      upon shutdown.
+    </para>
+    <section>
+      <title>Services and Components</title>
+      <para>
+        <termdef>A <firstterm>service</firstterm> is a description of an interface (contract) that may be
+          implemented by one or more components.  A service may specify that its components are required
+          to provide declarative metadata in addition to executable code.  Metadata is used to describe
+          properties of a component without having to load its code.  It may also be used to specify
+          activation criteria for the component.</termdef>
+        <termdef>A <firstterm>component</firstterm> is a class that implements the operations
+        described by a given service.  A component may also include metadata.</termdef>
+      </para>
+      <para>
+        For example, Gallio's core library declares a service that describes an interface for a test framework
+        and its metadata.  Each test framework plugin then defines a component to provide a
+        reference to its executable code along with its name, description, version and an icon.
+      </para>
+      <para>
+        The runtime is optimized to defer the instantiation of components until they are needed.  This
+        helps Gallio to minimize its startup time and footprint even in situations where many plugins have
+        been installed but are not yet required for execution.
+      </para>
+    </section>
+    <section>
+      <title>Plugins</title>
+      <para>
+        <termdef>A <firstterm>plugin</firstterm> is a unit of extension supported by the runtime.</termdef>
+        <termdef>A <firstterm>plugin manifest</firstterm> is a simple XML file that defines the
+          services and components that constitute a plugin.  XML is used specifically to avoid having
+          to load plugin assemblies until they are required for execution.</termdef>
+        <termdef>A <firstterm>plugin assembly</firstterm> is a .Net assembly that extends the Gallio
+        Platform in some way by providing executable code and resources associated with services or components.</termdef>
+      </para>
+      <para>
+        A plugin is generally represented as a collection of files including a plugin manifest, one or more plugin
+        assemblies and additional resources as required.  This layout is described in a later
+        section.
+      </para>
+    </section>
+    <section>
+      <title>The Runtime Lifecycle</title>
+      <para>
+        Applications based on the Gallio Platform must initialize the Runtime before calling into
+        most Gallio services.  When the runtime is initialized, Gallio populates its list of
+        services but it does not instantiate them until they are needed.
+      </para>
+      <para>
+        While an application runs, it has free access to all runtime services.  The following basic
+        operations are provided: getting descriptions of plugins, services and components;
+        activating and deactivating plugins; resolving components; obtaining plugin resources. 
+      </para>
+      <para>
+        When an application is about to exit, it should dispose the runtime.  This ensures that
+        Gallio services are shut down appropriately.
+      </para>
+      <example>
+        <title>Using the Runtime</title>
+        <programlisting language="C#"><![CDATA[
+          Runtime.Initialize(NullLogger.Instance);
+          
+          IMyService component = Runtime.Components
+            .Where(componentDescription => componentDescription.Metadata["Name"] == "Foo")
+            .Resolve<IMyService>();
+          component.DoSomething();
+
+          Runtime.Shutdown();
+          ]]>
+        </programlisting>
+      </example>
+    </section>
+  </section>
 </chapter>
