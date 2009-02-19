@@ -4,7 +4,7 @@
   <PropertyGroup>
     <SaxonJar>$(ModuleDir)\tools\Saxon\saxon.jar</SaxonJar>
 
-    <XslthlJar>$(ModuleDir)\tools\Xslthl\xslthl.jar</XslthlJar>
+    <XslthlJar>$(ModuleDir)\tools\Xslthl\xslthl-2.0.1.jar</XslthlJar>
     <XslthlConfig>$(ModuleDir)\resources\Highlighters\xslthl-config.xml</XslthlConfig>
 
     <XercesJar>$(ModuleDir)\tools\xerces-2_9_1\xercesImpl.jar</XercesJar>

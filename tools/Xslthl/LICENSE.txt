@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
-
 xslthl - XSLT Syntax Highlighting
 http://sourceforge.net/projects/xslthl/
 Copyright (C) 2005-2008 Michal Molhanec, Jirka Kosek, Michiel Hendriks
@@ -24,23 +21,3 @@ freely, subject to the following restrictions:
 Michal Molhanec <mol1111 at users.sourceforge.net>
 Jirka Kosek <kosek at users.sourceforge.net>
 Michiel Hendriks <elmuerte at users.sourceforge.net>
-
--->
-<xslthl-config>
-	<highlighter id="java" file="java-hl.xml" />
-	<highlighter id="delphi" file="delphi-hl.xml" />
-	<highlighter id="pascal" file="delphi-hl.xml" />
-	<highlighter id="ini" file="ini-hl.xml" />
-	<highlighter id="php" file="php-hl.xml" />
-	<highlighter id="myxml" file="myxml-hl.xml" />
-	<highlighter id="m2" file="m2-hl.xml" />
-	<highlighter id="tcl" file="tcl-hl.xml" />
-	<highlighter id="c" file="c-hl.xml" />
-	<highlighter id="cpp" file="cpp-hl.xml" />
-	<highlighter id="csharp" file="csharp-hl.xml" />
-	<highlighter id="python" file="python-hl.xml" />
-	<highlighter id="ruby" file="ruby-hl.xml" />
-	<highlighter id="perl" file="perl-hl.xml" />	
-	<highlighter id="javascript" file="javascript-hl.xml" />
-	<namespace prefix="xslthl" uri="http://xslthl.sf.net" />
-</xslthl-config>

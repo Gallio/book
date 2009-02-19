@@ -77,7 +77,7 @@
       </para>
       <example>
         <title>Using the Runtime</title>
-        <programlisting language="C#"><![CDATA[
+        <programlisting language="csharp"><![CDATA[
           Runtime.Initialize(NullLogger.Instance);
           
           IMyService component = Runtime.Components

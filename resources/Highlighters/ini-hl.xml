@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
+
+Syntax highlighting definition for ini files
 
 xslthl - XSLT Syntax Highlighting
 http://sourceforge.net/projects/xslthl/
@@ -26,21 +28,18 @@ Jirka Kosek <kosek at users.sourceforge.net>
 Michiel Hendriks <elmuerte at users.sourceforge.net>
 
 -->
-<xslthl-config>
-	<highlighter id="java" file="java-hl.xml" />
-	<highlighter id="delphi" file="delphi-hl.xml" />
-	<highlighter id="pascal" file="delphi-hl.xml" />
-	<highlighter id="ini" file="ini-hl.xml" />
-	<highlighter id="php" file="php-hl.xml" />
-	<highlighter id="myxml" file="myxml-hl.xml" />
-	<highlighter id="m2" file="m2-hl.xml" />
-	<highlighter id="tcl" file="tcl-hl.xml" />
-	<highlighter id="c" file="c-hl.xml" />
-	<highlighter id="cpp" file="cpp-hl.xml" />
-	<highlighter id="csharp" file="csharp-hl.xml" />
-	<highlighter id="python" file="python-hl.xml" />
-	<highlighter id="ruby" file="ruby-hl.xml" />
-	<highlighter id="perl" file="perl-hl.xml" />	
-	<highlighter id="javascript" file="javascript-hl.xml" />
-	<namespace prefix="xslthl" uri="http://xslthl.sf.net" />
-</xslthl-config>
+<highlighters>
+	<highlighter type="oneline-comment">;</highlighter>
+	<highlighter type="regex">	
+		<!-- ini sections -->
+		<pattern>^(\[.+\]\s*)$</pattern>
+		<style>keyword</style>
+		<flags>MULTILINE</flags>
+	</highlighter>
+	<highlighter type="regex">
+		<!-- the keys in an ini section -->
+		<pattern>^(.+)(?==)</pattern>
+		<style>attribute</style>
+		<flags>MULTILINE</flags>
+	</highlighter>
+</highlighters>
