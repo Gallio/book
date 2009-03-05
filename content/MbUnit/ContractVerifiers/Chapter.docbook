@@ -49,4 +49,6 @@
   <xi:include href="EqualityContract/Section.docbook" />
   <xi:include href="ComparisonContract/Section.docbook" />
   <xi:include href="ImmutabilityContract/Section.docbook" />
+  <xi:include href="CollectionContract/Section.docbook" />
+  <xi:include href="ListContract/Section.docbook" />
 </chapter>

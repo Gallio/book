@@ -19,13 +19,8 @@
     xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>The Immutability Contract Verifier</title>
+  <title>The List Contract Verifier</title>
   <para>
     TODO
   </para>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="images/sample-report.png" format="PNG"/>
-    </imageobject>
-  </mediaobject>
 </section>
