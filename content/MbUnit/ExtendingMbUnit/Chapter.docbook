@@ -21,7 +21,7 @@
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:svg="http://www.w3.org/2000/svg"
     xmlns:mml="http://www.w3.org/1998/Math/MathML">
-  <title>Extensing MbUnit</title>
+  <title>Extending MbUnit</title>
   <para>
     This chapter explains how to extend MbUnit with new features such as custom metadata, test
     decorators, and new data sources,.
