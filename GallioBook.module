@@ -101,7 +101,7 @@
   <Target Name="BeforeDist">
     <ItemGroup>
       <File Include="$(ImageDir)\GallioBook\**\*">
-        <DistPath>GallioBook-$(DistLabel)</DistPath>
+        <DistPath>GallioBook\$(DistLabel)</DistPath>
       </File>
     </ItemGroup>
   </Target>
