@@ -43,6 +43,8 @@
         {
             public static int Calculate(int x)
             {
+	        if (x <= 0)
+		    return 0;
                 return Calculate(x - 1) + Calculate(x - 2);
             }
         }
@@ -51,7 +53,11 @@
     <![CDATA[Public Class Fibonacci
   
         Public Shared Function Calculate(ByVal x As Integer) As Integer
-            Return Calculate(x - 1) + Calculate(x - 2)
+	    If x <= 0 Then
+	        Return 0
+            Else
+                Return Calculate(x - 1) + Calculate(x - 2)
+	    End If
         End Function
       
     End Class]]></programlisting>
