@@ -1,0 +1,119 @@
+Using Gallio Book
+Book Outline Draft
+Chapter Outline
+
+The nub and crux of it...Introduction
+• Why do we need this book
+• Who are the intended audience?
+• About Gallio and MbUnit – History
+
+Section 1 : Using MbUnit and Gallio
+Chapter 1 : Installation
+• Using the msi installer – cover the various options in the installer wizard
+• Using the zip installer with the standalone dlls
+• Using Gallio.ControlPanel and Gallio.Utility to register your own plugins
+
+Chapter 2 : My First Tests
+• Writing a few simple tests – introducing test-driven development
+? On the fly IDE error messages
+• Using Icarus to run those tests and interpret the results
+• Using Echo
+• Using other runners
+? Testdriven.net
+? Using Resharper
+? Using VSTS
+? Using Powershell
+? Using AutoCAD
+• Running xUnit, nUnit, nBehave, Pex, etc through Gallio
+? Quick note on variations in xUnit, nUnit, mbUnit etc
+? Quick note on TDD vs BDD vs integration tests
+
+Chapter 3 : MbUnit Fundamentals
+Looks at the basic class and method attributes for test construction.
+• A simple test solution \ project structure
+? VS templates
+? Using Gallio.Copy to add it into your project structure
+? X86 tests on x64
+• Test, TestFixture
+• Setup, Teardown
+• FixtureSetup, FixtureTeardown
+• Ignore, Warning, Pending, Fail, Inconclusive, Terminate, TerminateSilently,
+IsFailurePending
+• Author, Category• Asserts
+? Standard
+? Collection
+? Xml
+? Serialization
+• MultipleAsserts
+• AssertEx.That
+• Diagnostic Logs
+• Debugging with tests
+
+Chapter xx : Testing Recipes 1
+• RowTests
+• Supplying metadata to test methods
+• Csv files
+• XML files
+• SqlResource
+• Combinatorial tests \ factory pattern
+• Grammar pattern
+• Contract Verifiers
+• Abstract Test Pattern
+• Parallelizable
+• Repeat and ThreadedRepeat
+• Ordered Tests
+• Dynamic tests and test suites
+• Structural Object Formatting
+
+Chapter xx : Testing Recipes 2
+• Test assembly config files
+• DefaulttestCaseTimeout and other assembly decorations
+• Using Mocks (typemock, moq, rhino.mocks)
+• Using Ambience
+• Inclusion \ Exclusion filters
+
+Chapter xx : Domain Testing
+• Database testing
+• Web testing
+? with Watin
+? ASP.NET MVC testing
+• Unit testing a domain model with Moq and Rhino.Mocks.
+• Elevating privileges \ UAT with testsChapter 7 : Test Reports
+• Navigating reports
+• Diffs in Assertion failures
+• Types of report
+• Customizing reports
+• Use XML Documentation comments to enhance reports
+• Viewing source code in reports
+• Viewing screenshots \ video in reports
+
+Chapter xx : Extending MbUnit
+• How MbUnit works
+• Creating new attributes
+• Creating new asserts
+• Creating new metadata sources
+• Creating new type converter and formatter
+
+Chapter xx : Automated Testing With Gallio
+• Controlling Gallio with
+? MSBuild
+? NANT
+? Finalbuilder
+• Diagnostic Logs
+• Integrating Gallio into
+? CruiseControl.net
+? TeamCity
+? nCover
+
+Section 2: Developing MbUnit and Gallio
+To be developed further once Section 1 is done
+Chapter xx : Development Basics
+• Tools needed for
+? Basic development
+? Documentation generation
+• Gallio Solution Structure
+• Introduction to Gallio Architecture
+
+Chapter xx : Creating Gallio Plugins
+
+Chapter xx : Creating Test Frameworks
