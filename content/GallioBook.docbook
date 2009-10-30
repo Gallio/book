@@ -37,10 +37,31 @@
   -->
   
   <xi:include href="Preface.docbook" />
-  <xi:include href="Introduction/Part.docbook" />
-  <xi:include href="MbUnit/Part.docbook" />
-  <xi:include href="FrameworkAdapters/Part.docbook" />
-  <xi:include href="Runners/Part.docbook" />
-  <xi:include href="Tools/Part.docbook" />
-  <xi:include href="DeveloperGuide/Part.docbook" />
+  <part label="I" xml:id="part_Using">
+    <title>Using MbUnit and Gallio</title>
+    <xi:include href="Installation/Installation.docbook" />
+    <xi:include href="MyFirstTests/MyFirstTests.docbook" />
+    <xi:include href="MbUnitFundamentals/MbUnitFundamentals.docbook" />
+    <xi:include href="TestingRecipes/TestingRecipesOne.docbook" />
+    <xi:include href="TestingRecipes/TestingRecipesTwo.docbook" />
+    <xi:include href="DomainTesting/DomainTesting.docbook" />
+    <xi:include href="TestReports/TestReports.docbook" />
+    <xi:include href="ExtendingMbUnit/ExtendingMbUnit.docbook" />
+    <xi:include href="AutomatedTestingWithGallio/AutomatedTestingWithGallio.docbook" />    
+  </part>
+
+  <part label="II" xml:id="part_Developing">
+    <title>Developing MbUnit and Gallio</title>
+    <xi:include href="GallioDevelopmentBasics/GallioDevelopmentBasics.docbook" />
+    <xi:include href="CreatingGallioPlugins/CreatingGallioPlugins.docbook" />
+    <xi:include href="CreatingTestFrameworks/CreatingTestFrameworks.docbook" />
+  </part>
+  
+  <part label="III" xml:id="appendices">
+    <title>Appendices</title>
+    <xi:include href="Appendices/MigrationGuide.docbook" />
+    <xi:include href="Appendices/Glossary.docbook" />
+    <xi:include href="Appendices/Copyright.docbook" />
+  </part>
+
 </book>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glossary xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="glossary">
+  <title>Glossary</title>
+  <glossdiv>
+    <title>A</title>
+    <glossentry id="glossary_AltNet">
+      <glossterm>Alt.Net</glossterm>
+      <glossdef><para>
+        A community of .NET developers who embrace tools, techniques and knowledge from all
+        development communities, and not just Microsoft's own tooling and guidance.
+      </para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>B</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>C</title>
+    <glossentry id="glossary_csUnit">
+      <glossterm>csUnit</glossterm>
+      <glossdef><para>A unit-testing framework written in C++. Tests written against csUnit can be
+        run by Gallio.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>D</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>E</title>
+    <glossentry id="glossary_Echo">
+      <glossterm>Echo</glossterm>
+      <glossdef><para>The Gallio project command-line based test runner</para></glossdef>
+    </glossentry>
+    <glossentry id="glossary_ExtremeProgramming">
+      <glossterm>Extreme Programming</glossterm>
+      <acronym>XP</acronym>
+      <glossdef>
+        <para>
+          A type of agile software development,advocating frequent "releases" in short development
+          cycles. The idea is to improve developer productivity and create points in the process where 
+          new customer requirements can be included into the software specification.
+        </para>
+      </glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>F</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>G</title>
+    <glossentry id="glossary_Gallio">
+      <glossterm>Gallio</glossterm>
+      <glossdef><para>The framework-neutral Automation Platform half of the Gallio project, written in C#.</para></glossdef>
+    </glossentry>
+    <glossentry id="glossary_gUnit">
+      <glossterm>gUnit</glossterm>
+      <glossdef><para>The original name for MbUnit.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>H</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>I</title>
+    <glossentry id="glossary_Icarus">
+      <glossterm>Icarus</glossterm>
+      <glossdef><para>The Gallio project's GUI-based test runner</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>J</title>
+    <glossentry id="glossary_jUnit">
+      <glossterm>jUnit</glossterm>
+      <glossdef><para>A unit-testing framework written in Java.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>K</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>L</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>M</title>
+    <glossentry id="glossary_MbUnit">
+      <glossterm>MbUnit</glossterm>
+      <glossdef><para>The unit-testing framework half of the Gallio project, written in C#.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>N</title>
+    <glossentry id="glossary_nBehave">
+      <glossterm>nBehave</glossterm>
+      <glossdef><para>One of the first behavior-driven development frameworks written in C#. Tests
+        written against nBehave can be run by
+        Gallio.</para></glossdef>
+    </glossentry>
+    <glossentry id="glossary_nUnit">
+      <glossterm>nUnit</glossterm>
+      <glossdef><para>One of the first unit-testing frameworks written in C#. Tests written against nUnit can be run by
+        Gallio.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>O</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>P</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>Q</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>R</title>
+    <glossentry id="glossary_Resharper">
+      <glossterm>Resharper</glossterm>
+      <acronym>R#</acronym>
+      <glossdef><para>A refactoring plug-in for Visual Studio. It has a test runner which can use
+        Gallio to run tests written against any framework that Gallio supports.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>S</title>
+    <glossentry id="glossary_SDET">
+      <glossterm>Software Development Engineer in Test</glossterm>
+      <acronym>SDET</acronym>
+      <glossdef><para>
+        A development role at Microsoft that sees a product through two phases of the software
+        lifecycle - Development and Testing.
+      </para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>T</title>
+    <glossentry id="glossary_TeamCity">
+      <glossterm>TeamCity</glossterm>
+      <glossdef><para>A build management and continuous integration server. It has a test runner which can use
+        Gallio to run tests written against any framework that Gallio supports.</para></glossdef>
+    </glossentry>
+    <glossentry id="glossary_tdd">
+      <glossterm>Test-Driven Development</glossterm>
+      <acronym>TDD</acronym>
+      <glossdef>
+        <para>A style of software development with four simple steps. 
+          <orderedlist>
+            <listitem><para>Create a test case for code that fails.</para></listitem>
+            <listitem><para>Write code so the test case and all other test cases pass.</para></listitem>
+            <listitem><para>Refactor all the code so there are no code smells and the test cases
+            still pass</para></listitem>
+            <listitem><para>Repeat</para></listitem>
+          </orderedlist>
+          </para>
+      </glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>U</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>V</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>W</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>X</title>
+    <glossentry id="glossary_xUnit">
+      <glossterm>xUnit</glossterm>
+      <glossdef><para>One of the newer unit-testing frameworks written in C#, written from scratch
+        by some members of the nUnit team based on their experience with that. Tests written
+        against xUnit can be run by Gallio.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>Y</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
+    <title>Z</title>
+    <glossentry>
+      <glossterm></glossterm>
+    </glossentry>
+  </glossdiv>
+</glossary>
