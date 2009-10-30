@@ -60,8 +60,8 @@
   <part label="III" xml:id="appendices">
     <title>Appendices</title>
     <xi:include href="Appendices/MigrationGuide.docbook" />
-    <xi:include href="Appendices/Glossary.docbook" />
     <xi:include href="Appendices/Copyright.docbook" />
+    <xi:include href="Appendices/Glossary.docbook" />
   </part>
 
 </book>

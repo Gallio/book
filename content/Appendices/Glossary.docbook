@@ -12,23 +12,11 @@
     </glossentry>
   </glossdiv>
   <glossdiv>
-    <title>B</title>
-    <glossentry>
-      <glossterm></glossterm>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
     <title>C</title>
     <glossentry id="glossary_csUnit">
       <glossterm>csUnit</glossterm>
       <glossdef><para>A unit-testing framework written in C++. Tests written against csUnit can be
         run by Gallio.</para></glossdef>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>D</title>
-    <glossentry>
-      <glossterm></glossterm>
     </glossentry>
   </glossdiv>
   <glossdiv>
@@ -50,12 +38,6 @@
     </glossentry>
   </glossdiv>
   <glossdiv>
-    <title>F</title>
-    <glossentry>
-      <glossterm></glossterm>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
     <title>G</title>
     <glossentry id="glossary_Gallio">
       <glossterm>Gallio</glossterm>
@@ -64,12 +46,6 @@
     <glossentry id="glossary_gUnit">
       <glossterm>gUnit</glossterm>
       <glossdef><para>The original name for MbUnit.</para></glossdef>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>H</title>
-    <glossentry>
-      <glossterm></glossterm>
     </glossentry>
   </glossdiv>
   <glossdiv>
@@ -84,18 +60,6 @@
     <glossentry id="glossary_jUnit">
       <glossterm>jUnit</glossterm>
       <glossdef><para>A unit-testing framework written in Java.</para></glossdef>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>K</title>
-    <glossentry>
-      <glossterm></glossterm>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>L</title>
-    <glossentry>
-      <glossterm></glossterm>
     </glossentry>
   </glossdiv>
   <glossdiv>
@@ -117,24 +81,6 @@
       <glossterm>nUnit</glossterm>
       <glossdef><para>One of the first unit-testing frameworks written in C#. Tests written against nUnit can be run by
         Gallio.</para></glossdef>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>O</title>
-    <glossentry>
-      <glossterm></glossterm>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>P</title>
-    <glossentry>
-      <glossterm></glossterm>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>Q</title>
-    <glossentry>
-      <glossterm></glossterm>
     </glossentry>
   </glossdiv>
   <glossdiv>
@@ -181,42 +127,12 @@
     </glossentry>
   </glossdiv>
   <glossdiv>
-    <title>U</title>
-    <glossentry>
-      <glossterm></glossterm>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>V</title>
-    <glossentry>
-      <glossterm></glossterm>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>W</title>
-    <glossentry>
-      <glossterm></glossterm>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
     <title>X</title>
     <glossentry id="glossary_xUnit">
       <glossterm>xUnit</glossterm>
       <glossdef><para>One of the newer unit-testing frameworks written in C#, written from scratch
         by some members of the nUnit team based on their experience with that. Tests written
         against xUnit can be run by Gallio.</para></glossdef>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>Y</title>
-    <glossentry>
-      <glossterm></glossterm>
-    </glossentry>
-  </glossdiv>
-  <glossdiv>
-    <title>Z</title>
-    <glossentry>
-      <glossterm></glossterm>
     </glossentry>
   </glossdiv>
 </glossary>

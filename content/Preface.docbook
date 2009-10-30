@@ -110,9 +110,9 @@
         <term>Those who want to move to MbUnit v3 from another test framework or MbUnit v2</term>
         <listitem>
           <para>The assumption here is that you are already familiar with a test framework and want
-            to know how to switch to MbUnit v3. Use the <xref linkend="appendix_MigrationGuide"/> to
+            to know how to switch to MbUnit v3. Use <xref linkend="appendix_MigrationGuide"/> to
             see how the attributes and features in your framework compare up to MbUnit and <xref
-              linkend="chapter_MbUnit_Fundamentals"/>, <xref linkend="chapter_TestingRecipesOne"/>,
+              linkend="chapter_MbUnitFundamentals"/>, <xref linkend="chapter_TestingRecipesOne"/>,
               <xref linkend="chapter_TestingRecipesTwo"/>, and <xref linkend="chapter_DomainTesting"
             /> to find more detail on the specific implementation in MbUnit v3. <xref
               linkend="chapter_TestReports"/> demonstrates how to interpret the results of your
@@ -252,11 +252,11 @@
                 v3</link></para>
           </listitem>
           <listitem>
-            <para><link linkend="glossary">Glossary of Terms</link></para>
-          </listitem>
-          <listitem>
             <para><link linkend="appendix_Copyright">A copy of the Creative Commons Attribution
                 License, under which this book is licensed.</link></para>
+          </listitem>
+          <listitem>
+            <para><link linkend="glossary">Glossary of Terms</link></para>
           </listitem>
         </itemizedlist>
       </listitem>
