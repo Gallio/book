@@ -1,9 +1,639 @@
 <?xml version="1.0" encoding="utf-8"?>
-<chapter version="5.0"
-  xmlns="http://docbook.org/ns/docbook"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:xi="http://www.w3.org/2001/XInclude"
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude"
   xml:id="chapter_Installation">
   <title>Installing &amp; Configuring Gallio</title>
-  <para></para>
+  <para>Before you can do anything, you'll need to install Gallio &amp; MbUnit, and if required
+    configure it to your needs. In this chapter, we'll look at both installation and
+    configuration.</para>
+  <section xml:id="chapter_Installation_InstallingGallio">
+    <title>Installing Gallio</title>
+    <para>To install Gallio and MbUnit v3, you'll need to visit <link xlink:href="http://gallio.org/downloads.aspx">gallio.org/downloads.aspx</link> and
+      download the version you need for your system. There are three options:</para>
+    <itemizedlist>
+      <listitem>
+        <para>An installer for 64-bit systems (<filename>GallioBundle-3.x.y.z-Setup-x64.msi</filename>)</para>
+      </listitem>
+      <listitem>
+        <para>An installer for 32-bit systems (<filename>GallioBundle-3.x.y.z-Setup-x86.msi</filename>)</para>
+      </listitem>
+      <listitem>
+        <para>A zip file of the code for you to install as you will
+          (<filename>GallioBundle-3.x.y.z.zip</filename>)</para>
+      </listitem>
+    </itemizedlist>
+    <para> A fourth option is to download the source code for Gallio from its Google Code project
+      (<link xlink:href="http://code.google.com/p/mb-unit">http://code.google.com/p/mb-unit</link>) and build it manually. You'll find instructions on how to
+      do this in <xref linkend="part_Developing"/> .</para>
+    <section xml:id="chapter_Installation_UsingTheMSIs">
+      <title>Using the MSIs</title>
+      <para>Let's start by using the installer. Once you've downloaded the correct installer for
+        your system, double-click it to start the installation. You'll soon see the start screen
+        as shown in <xref linkend="fig_InstallWizardStepOne"/>.</para>
+      <figure xml:id="fig_InstallWizardStepOne">
+        <title>Starting the Gallio Installer</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/InstallWizardStep1.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Starting the Gallio Installer</phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para>Click Next. The second screen shows you that Gallio and MbUnit are licensed under the
+        Apache Licence v2.0 and where to get a copy of it. For reference, you can find it at
+        http://www.apache.org/licenses/LICENSE-2.0 and in the Appendices along with the Creative
+        Commons licence that covers this book. Check the box accepting the terms of the agreement
+        and then hit Next. </para>
+      <para>The third screen, shown in <xref linkend="fig_InstallWizardStepTwo"/> offers three levels of setup option. </para>
+      <figure xml:id="fig_InstallWizardStepTwo">
+        <title>Choosing Setup Type</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/InstallWizardStep2.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Choosing Setup Type</phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para> Clicking Custom will show you all the possible options that can be installed as part of
+        this setup. By default, those already selected are the options installed as part of the
+        Typical setup. Selecting all the options is the same as choosing the Complete setup option. </para>
+      <section xml:id="chapter_Installation_CustomSetup">
+        <title>Choosing Your Options</title>
+        <para> The custom setup option, shown in <xref linkend="fig_CustomSetup"/> allows you to install only the elements of Gallio that you
+          need for your system along with any documentation or samples you might need. In this
+          section we'll run through the various options this custom setup allows you to pick. </para>
+        <figure xml:id="fig_CustomSetup">
+          <title>The Custom Setup Dialog</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/CustomSetup.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>The Custom Setup Dialog</phrase></textobject>
+          </mediaobject>
+        </figure>
+        <para> We'll walk through them in order. </para>
+        <section xml:id="chapter_Installation_CustomSetup_Gallio">
+          <title>Gallio</title>
+          <para> The first option, shown in <xref linkend="fig_CustomSetup_GallioOptions"/>, installs the main Gallio automation framework and optionally the
+            libraries that allow Gallio to interact with Visual Studio for debugging through tests
+            and for navigating to source. You can also install:</para>
+          <itemizedlist>
+            <listitem>
+              <para> A set of libraries that allow Gallio to work with the dynamic library runtime
+                enabling use with IronPython.NET and IronRuby.NET, for example. (v3.1+) </para>
+            </listitem>
+          </itemizedlist>
+          <figure xml:id="fig_CustomSetup_GallioOptions">
+            <title>Choosing Gallio Options To Install</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/CustomSetup_GallioOptions.png" format="PNG"/>
+              </imageobject>
+              <textobject><phrase>Choosing Gallio Options To Install</phrase></textobject>
+            </mediaobject>
+          </figure>
+        </section>
+        <section xml:id="chapter_Installation_CustomSetup_MbUnit">
+          <title>MbUnit v3</title>
+          <para>The second option, shown in <xref linkend="fig_CustomSetup_MbUnitOptions"/>, installs the libraries for MbUnit v3. Optionally you can also
+            install</para>
+          <itemizedlist>
+            <listitem>
+              <para>A set of templates for Visual Studio that allow for easier set up of test
+                projects with MbUnit v3.</para>
+            </listitem>
+          </itemizedlist>
+          <figure xml:id="fig_CustomSetup_MbUnitOptions">
+            <title>Choosing MbUnit v3 Options To Install</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/CustomSetup_MbUnitOptions.png" format="PNG"/>
+              </imageobject>
+              <textobject><phrase>Choosing MbUnit v3 Options To Install</phrase></textobject>
+            </mediaobject>
+          </figure>
+        </section>
+        <section xml:id="chapter_Installation_CustomSetup_Adapters">
+          <title>Test Framework Adapters</title>
+          <para> One half of Gallio's flexibility comes from its ability to run tests written with
+            any framework. All it needs is an adapter written to tell it how to run those tests and
+            interpret the results. The third option, shown in <xref linkend="fig_CustomSetup_Adapters"/>, allows you to select from those adapters already
+            written. </para>
+          <itemizedlist>
+            <listitem>
+              <para>csUnit : Allows you to run csUnit tests with Gallio</para>
+            </listitem>
+            <listitem>
+              <para>MbUnit v2: Allows you to run MbUnit v2 tests with Gallio</para>
+            </listitem>
+            <listitem>
+              <para>MSTest: Allows you to run MSTest tests with Gallio (only if you have Visual
+                Studio 2008 / Visual Studio Team System installed) </para>
+            </listitem>
+            <listitem>
+              <para>NUnit: Allows you to run NUnit tests with Gallio</para>
+            </listitem>
+            <listitem>
+              <para>RSpec: Allows you to run RSpec tests with Gallio (v3.1+)</para>
+            </listitem>
+            <listitem>
+              <para>xUnit.NET: Allows you to run xUnit.NET tests with Gallio</para>
+            </listitem>
+          </itemizedlist>
+          <figure xml:id="fig_CustomSetup_Adapters">
+            <title>Choosing Test Framework Adapters To Install</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/CustomSetup_Adapters.png" format="PNG"/>
+              </imageobject>
+              <textobject><phrase>Choosing Test Framework Adapters To Install</phrase></textobject>
+            </mediaobject>
+          </figure>
+          <para>Note that unless you need to run tests created with these frameworks, you don't need
+            to install these plugins.</para>
+        </section>
+        <section xml:id="chapter_Installation_CustomSetup_Runners">
+          <title>Test Runners</title>
+          <para> The other half of Gallio's flexibility is its test runners. Runners are programs or
+            plug-ins for other programs that provide different ways to run tests through Gallio. The
+            fourth option, shown in <xref linkend="fig_CustomSetup_TestRunners"/>, allows you to
+            select which runners to install for other programs already installed on your machine.
+            You have the choice of:</para>
+          <itemizedlist>
+            <listitem>
+              <para>PowerShell commands: Allows you to run Gallio from a PowerShell script</para>
+            </listitem>
+            <listitem>
+              <para>ReSharper v4.5 plug-in: Allows you to run Gallio from ReSharper</para>
+            </listitem>
+            <listitem>
+              <para>Visual Studio 2008 Add-in: Allows you to run Gallio from Visual Studio's Team
+                System</para>
+            </listitem>
+            <listitem>
+              <para>Icarus: Gallio's own graphical test runner</para>
+            </listitem>
+            <listitem>
+              <para>Echo: Gallio's own console test runner</para>
+            </listitem>
+            <listitem>
+              <para>MSBuild tasks: Allows you to run Gallio from an MSBuild build script</para>
+            </listitem>
+            <listitem>
+              <para>NAnt tasks: Allows you to run Gallio from a NAnt build script</para>
+            </listitem>
+            <listitem>
+              <para>TestDriven.NET runner: Allows you to run tests with Gallio from the
+                TestDriven.NET Visual Studio add-in </para>
+            </listitem>
+          </itemizedlist>
+          <figure xml:id="fig_CustomSetup_TestRunners">
+            <title>Choosing Test Runners To Install</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/CustomSetup_TestRunners.png" format="PNG"/>
+              </imageobject>
+              <textobject><phrase>Choosing Test Runners To Install</phrase></textobject>
+            </mediaobject>
+          </figure>
+          <para> Note that no matter how you choose to run Gallio, you will always be able to run
+            tests written against any of the frameworks you have installed adapters for. For
+            example, you'll be able to run csUnit tests through Resharper as long as you have
+            installed the Resharper test runner and the csUnit framework adapter.</para>
+        </section>
+        <section xml:id="chapter_Installation_CustomSetup_Tools">
+          <title>Test Tools</title>
+          <para> The fifth set of options, shown in <xref linkend="fig_CustomSetup_TestTools"/>, allows some integration between Gallio and other tools you
+            have installed separately on your machine.</para>
+          <itemizedlist>
+            <listitem>
+              <para>AutoCAD Integration: Allows tests that depend on the AutoCAD API (ObjectARX) to
+                run inside the AutoCAD process.</para>
+            </listitem>
+            <listitem>
+              <para>Ambience: Ambience is Gallio's own utility for storing persistent data across
+                multiple test runs. We'll look at using Ambience in Chapter 5</para>
+            </listitem>
+            <listitem>
+              <para>Browser Integration: Allows you to navigate directly from Gallio test reports to
+                the source code the report is highlighting.</para>
+            </listitem>
+            <listitem>
+              <para>NCover integration: Allows you to enable code coverage with NCover by simply
+                setting a property </para>
+            </listitem>
+            <listitem>
+              <para>TeamCity integration: Allows you to integrate Gallio reports into
+                TeamCity.</para>
+            </listitem>
+            <listitem>
+              <para>TypeMock integration: Allows you to enable TypeMock.NET by simply setting a
+                property</para>
+            </listitem>
+          </itemizedlist>
+          <figure xml:id="fig_CustomSetup_TestTools">
+            <title>Choosing Test Tools To Install</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/CustomSetup_TestTools.png" format="PNG"/>
+              </imageobject>
+              <textobject><phrase>Choosing Test Tools To Install</phrase></textobject>
+            </mediaobject>
+          </figure>
+          <para> We'll look at the various ways that Gallio reports integrate into the browser and
+            more in Chapter 7.</para>
+        </section>
+        <section xml:id="chapter_Installation_CustomSetup_Documentation">
+          <title>Documentation &amp; Samples</title>
+          <para>The Gallio installer also comes with a variety of documentation and code samples for
+            your reference. <xref linkend="fig_CustomSetup_Documentation"/> shows the options. You
+            have the choice of:</para>
+          <itemizedlist>
+            <listitem>
+              <para>Standalone Help Docs: Puts the standalone CHM documentation file on your
+                system</para>
+            </listitem>
+            <listitem>
+              <para>Visual Studio Help Docs: Installs the integrated documentation for Visual
+                Studio</para>
+            </listitem>
+            <listitem>
+              <para>Gallio Samples: Puts the (to be written) Gallio code samples on your system.
+              </para>
+            </listitem>
+            <listitem>
+              <para>MbUnit Samples: Puts the MbUnit code samples on your system. </para>
+            </listitem>
+          </itemizedlist>
+          <figure xml:id="fig_CustomSetup_Documentation">
+            <title>Choosing Documentation And Samples To Install</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/CustomSetup_DocsAndSamples.png" format="PNG"/>
+              </imageobject>
+              <textobject><phrase>Choosing Documentation And Samples To Install</phrase></textobject>
+            </mediaobject>
+          </figure>
+          <para> The samples and standalone documentation can be found at
+            %programfiles%\Gallio\samples and %programfiles%\Gallio\docs for your use later on. The
+            samples are saved in zip files for you to extract yourself.</para>
+        </section>
+        <section xml:id="chapter_Installation_CustomSetup_Extras">
+          <title>Extras</title>
+          <para> The final set of options, shown in <xref linkend="fig_CustomSetup_Extras"/>, contain just one feature at the moment.</para>
+          <itemizedlist>
+            <listitem>
+              <para>CruiseControl .Net extensions: Provides an extension to allow downloading
+                attachment from the CCNet build report. It's only useful if you are implementing a
+                build server.</para>
+            </listitem>
+          </itemizedlist>
+          <figure xml:id="fig_CustomSetup_Extras">
+            <title>Choosing Extras To Install</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/CustomSetup_Extras.png" format="PNG"/>
+              </imageobject>
+              <textobject><phrase>Choosing Extras To Install</phrase></textobject>
+            </mediaobject>
+          </figure>
+        </section>
+      </section>
+    </section>
+    <section xml:id="chapter_Installation_CompletingInstallation">
+      <title>Completing the Installation</title>
+      <para>The wizard is now ready to install your options. Click Install to have it run. If you
+        ran the setup program as a standard user in Windows Vista or Windows 7, User Account Control
+        will ask you for an administrator's account and password before installation begins. When
+        everything is installed, the wizard lets you know.</para>
+      <para>Click Finish to close the setup wizard. You'll find that the installer has created a
+        folder in the Start Menu (<xref linkend="fig_Installation_GallioStartMenuOptions"/>, where you will see shortcuts for the Icarus GUI runner, the MbUnit
+        website, the offline documentation, the online documentation and the uninstaller.</para>
+      <figure xml:id="fig_Installation_GallioStartMenuOptions">
+        <title>The Gallio Start Menu</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/GallioStartMenuOptions.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>The Gallio Start Menu</phrase></textobject>
+        </mediaobject>
+      </figure>
+    </section>
+    <section xml:id="chapter_Installation_UsingTheZipInstaller">
+      <title>Using the ZIP Installer</title>
+      <para> If you need access to the Gallio samples, docs and DLLs but don't want it registered on
+        your system – for example, you just need the DLLs for source code check in or a build server
+        – you can download a zipped archive of all the Gallio files instead of the standard MSI
+        installer. If you visit gallio.org/downloads.aspx you'll find that each release has a zip
+        file alternative for download as well. </para>
+      <para> The contents of the zip file, shown in <xref linkend="fig_Installation_ZipContents"/>, mirror those installed to %programfiles%\Gallio by the MSI
+      installer. </para>
+      <figure xml:id="fig_Installation_ZipContents">
+        <title>The Contents Of The Gallio Zip Download</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/GallioZipContents.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>The Contents Of The Gallio Zip Download</phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para> Besides the root folder which contains the license files for the various pieces of
+        software used by Gallio and shortcuts for the Gallio website, you'll find four
+        folders.</para>
+      <itemizedlist>
+        <listitem>
+          <para>The bin folder contains the main Gallio and MbUnit v3 DLLs along with the Echo and
+            Icarus test runner applications.</para>
+        </listitem>
+        <listitem>
+          <para>The various bin\xyz subfolders each contain one of the test framework adapters,
+            runners or tools mentioned earlier.</para>
+        </listitem>
+        <listitem>
+          <para>The bin\Resources subfolder also contains the various files needed for the HTML and
+            XML reports that Gallio builds after a test run.</para>
+        </listitem>
+        <listitem>
+          <para>The docs folder contains the API documentation for Gallio and MbUnit . It is
+            available as a standalone .chm file, as files for integration into Visual Studio help
+            (and as Help 3 files – forthcoming). The h2reg.exe program for integrating these files
+            is in the extras folder.</para>
+        </listitem>
+        <listitem>
+          <para>The extras folder contains the aforementioned h2reg.exe program, project templates
+            for Visual Studio (2005/8/10) and files for incorporating Gallio into your
+            CruiseControl.net build server.</para>
+        </listitem>
+        <listitem>
+          <para>The samples folder contains a zip folder of an example C# solution demonstrating
+            various features in MbUnit v3. Once you've extracted the solution, note that
+            MbUnit.Samples.sln is a VS2005 file. MbUnit.Samples.2008.sln is for VS2008 users.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+  <section xml:id="chapter_Installation_ConfiguringGallio">
+    <title>Configuring Gallio</title>
+    <para> Once Gallio is installed, you can use the Gallio Control Panel to:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Integrate any of your own plugins into Gallio</para>
+      </listitem>
+      <listitem>
+        <para>Change various settings for Icarus, Gallio's GUI-based test runner</para>
+      </listitem>
+      <listitem>
+        <para>Specify which test frameworks Gallio will run for TestDriven.NET and which it will let
+          TestDriven.NET run itself.</para>
+      </listitem>
+      <listitem>
+        <para>Configure the startup mode for Ambience, Gallio's database server.</para>
+      </listitem>
+      <listitem>
+        <para>Check which versions of the various framework adapters, test runners and tools are
+          currently working with your version of Gallio.</para>
+      </listitem>
+    </itemizedlist>
+    <para> If you've not used Gallio before, try working with the default options before tweaking
+      things with the Control Panel. You can find it under the Start Menu in All Programs > Gallio >
+      Gallio Control Panel.</para>
+    <section xml:id="chapter_Installation_ControlPanel_RuntimeSettings">
+      <title>Runtime Settings</title>
+      <para> The runtime settings tab, shown in <xref linkend="fig_ControlPanel_Runtime"/>, allows you to specify the path to any additional Gallio
+      plugins that you may want to use beyond those in the standard installation.</para>
+      <figure xml:id="fig_ControlPanel_Runtime">
+        <title>Configuring Additional Gallio Plugins</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/ControlPanel_RuntimeOptions.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Configuring Additional Gallio Plugins</phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para> To add a new plugin directory:</para>
+      <orderedlist numeration="arabic">
+        <listitem>
+          <para>Click Add</para>
+        </listitem>
+        <listitem>
+          <para>Navigate to the directory holding the plug-in</para>
+        </listitem>
+        <listitem>
+          <para>Click OK.</para>
+        </listitem>
+      </orderedlist>
+      <para> The directory will be listed under “Additional plugin paths”. </para>
+      <para> To remove the directory from the list, select it and click Remove.</para>
+    </section>
+    <section xml:id="chapter_Installation_ControlPanel_Icarus">
+      <title>Icarus Settings</title>
+      <para> Icarus is Gallio's own GUI-based test runner. Gallio also provides a console-based test
+        runner called Echo, but Echo's settings must always be specified when it is run. Icarus on
+        the other hand stores some of its default settings on disk to be altered by the Gallio
+        Control Panel. You can access the Control Panel from Icarus directly via the Tools Menu
+        (Tools -> Options).</para>
+      <section xml:id="chapter_Installation_ControlPanel_Icarus_ProgressMonitoring">
+        <title>Progress Monitoring</title>
+        <para> The Progress Monitoring tab, shown in <xref linkend="fig_ControlPanel_Icarus_ProgressMonitoring"/>, has one option which lets you set whether or not Icarus
+        should show progress dialogs as tests are run.</para>
+        <figure xml:id="fig_ControlPanel_Icarus_ProgressMonitoring">
+          <title>Configuring Icarus Progress Monitoring</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/ControlPanel_ProgressMonitoring.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Configuring Icarus Progress Monitoring</phrase></textobject>
+          </mediaobject>
+        </figure>
+      </section>
+      <section xml:id="chapter_Installation_ControlPanel_Icarus_Colours">
+        <title>Colours and Progress Bar Style</title>
+        <para> The Appearance \ Test Status dialog, shown in <xref linkend="fig_ControlPanel_Colours"/>, allows you to specify the colours associated with
+        the four states of a test and the style of the test progress bar used in Icarus.</para>
+        <figure xml:id="fig_ControlPanel_Colours">
+          <title>Configuring Icarus Test Status Colours</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/ControlPanel_TestStatus.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Configuring Icarus Test Status Colours</phrase></textobject>
+          </mediaobject>
+        </figure>
+        <para> By common association, the colours green, red and yellow represent a test's success,
+          failure or inconclusive ending. However, if you need to change them, for example because
+          of colour-blindness, click on the colour block for each state and choose another colour
+          more to your preference. The changes in colour will affect the progress bar, the test tree
+          in Icarus (and the report).</para>
+        <para> The test progress bar in Icarus has two modes:</para>
+        <itemizedlist>
+          <listitem>
+            <para>In “Integration” mode, the progress bar displays red, green and yellow sections in
+              proportion to the number of failed, passed and inconclusive tests just run.</para>
+          </listitem>
+          <listitem>
+            <para>In “Unit” mode, the progress bar displays fully green until a test fails at which
+              point it turns totally red.</para>
+          </listitem>
+        </itemizedlist>
+        <para> Select the one you want to use and click Apply to have Icarus use it.</para>
+      </section>
+      <section xml:id="chapter_Installation_ControlPanel_Icarus_TestExplorerSettings">
+        <title> Test Explorer Settings</title>
+        <para>The Test Explorer dialog, shown in <xref linkend="fig_ControlPanel_TestExplorer"/>, lets you set several options directly related to the
+        execution of tests by Gallio.</para>
+        <figure xml:id="fig_ControlPanel_TestExplorer">
+          <title>Configuring Icarus Test Explorer Settings</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/ControlPanel_TestExplorer.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Configuring Icarus Test Explorer Settings</phrase></textobject>
+          </mediaobject>
+        </figure>
+        <para> From top to bottom, the options allow you to</para>
+        <itemizedlist>
+          <listitem>
+            <para>Force Icarus to reloading your test DLLs and associated files when any of them has
+              changed (e.g. when an assembly is rebuilt)</para>
+          </listitem>
+          <listitem>
+            <para>Make the Icarus test tree split at the dots in the tree (e.g. if you had
+              MyTests.CategoryA &amp; MyTestsCategoryB the tree would look like:</para>
+          </listitem>
+          <listitem>
+            <para>Choose which application will generate and process the test runner factory to run
+              the tests for your application. The default is for Gallio to use its own test runner
+              factory within an Isolated Process.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+      <section xml:id="chapter_Installation_ControlPanel_Icarus_TreeViewCategories">
+        <title>Tree View Categories</title>
+        <para> The Test Explorer window, shown in <xref linkend="fig_Icarus_TestExplorer"/>,  allows you to view the tests currently loaded into Icarus
+          grouped in a tree view based on one of a number of options you can choose from a
+          drop-down.</para>
+        <figure xml:id="fig_Icarus_TestExplorer">
+          <title>The Icarus Test Explorer Window</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Icarus_TestExplorer.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>The Icarus Test Explorer Window</phrase></textobject>
+          </mediaobject>
+        </figure>
+        <para> The Tree View Categories dialog in the Gallio control panel, shown in <xref
+          linkend="fig_ControlPanel_TestViewCategories"/>, allows you to set the
+        available categories by which the test explorer will attempt to order your tests. </para>
+        <figure xml:id="fig_ControlPanel_TestViewCategories">
+          <title>Configuring Test View Categories</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/ControlPanel_TestViewCategories.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Configuring Test View Categories</phrase></textobject>
+          </mediaobject>
+        </figure>        
+        <para> The categories in the left hand column are those that will appear in the test
+          explorer drop down list. We'll look in more detail at how each category works in Chapter
+          2. </para>
+      </section>
+      <section xml:id="chapter_Installation_ControlPanel_Icarus_Reports">
+        <title>Reports</title>
+        <para> The Reports tab, shown in <xref linkend="fig_ControlPanel_Reports"/>, has one option which lets you set whether or not Icarus should
+        generate a report once a test run is complete.</para>
+        <figure xml:id="fig_ControlPanel_Reports">
+          <title>Configuring Test Reports</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/ControlPanel_Reports.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Configuring Test Reports</phrase></textobject>
+          </mediaobject>
+        </figure>
+        <para> This option is also available in Appearance \ Progress Monitoring.</para>
+      </section>
+      <section xml:id="chapter_Installation_ControlPanel_Icarus_Startup">
+        <title>Startup</title>
+        <para> The final dialog for Icarus, shown in <xref linkend="fig_ControlPanel_Startup"/>, allows to set whether or not Icarus should automatically
+        load back in the test assemblies it had loaded when it was last closed.</para>
+        <figure xml:id="fig_ControlPanel_Startup">
+          <title>Configuring Icarus Startup Actions</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/ControlPanel_Startup.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Configuring Icarus Startup Actions</phrase></textobject>
+          </mediaobject>
+        </figure>
+      </section>
+    </section>
+    <section xml:id="chapter_Installation_ControlPanel_AutoCADSettings">
+      <title>AutoCAD Settings</title>
+      <para> If you use Gallio to write tests that automate AutoCAD, you can use the AutoCAD >
+        Startup dialog, shown in <xref linkend="fig_ControlPanel_AutoCAD"/>, to define how Gallio will link into AutoCAD when a test run starts.</para>
+      <figure xml:id="fig_ControlPanel_AutoCAD">
+        <title>Configuring AutoCAD Integration</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/ControlPanel_AutoCADOptions.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Configuring AutoCAD Integration</phrase></textobject>
+        </mediaobject>
+      </figure>
+    </section>
+    <section xml:id="chapter_Installation_ControlPanel_TestDrivenSettings">
+      <title>TestDriven.NET Settings</title>
+      <para> If you use the TestDriven.NET add-in for Visual Studio to run the tests in your
+        solutions, adding Gallio now gives you a few more options for running tests from within
+        Visual Studio. You can either run the tests directly within TestDriven.NET, or set
+        TestDriven.NET to run the tests within Gallio.</para>
+      <para> Use the TestDriven.Net > Frameworks dialog, shown in <xref
+        linkend="fig_ControlPanel_TestDrivenNetSettings"/>, to set which tests are run by either
+      TestDriven.NET or Gallio according to the test framework they are written with.</para>
+      <figure xml:id="fig_ControlPanel_TestDrivenNetSettings">
+        <title>Configuring TestDriven.NET Integration</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/ControlPanel_TestDrivenSettings.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Configuring TestDriven.NET Integration</phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para>The Mode drop down list for each test framework has three options:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Default: Use the default runner for the framework</para>
+        </listitem>
+        <listitem>
+          <para>Preferred: Use Gallio to run the tests</para>
+        </listitem>
+        <listitem>
+          <para>Disabled: Use TestDriven.NET to run the tests.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section xml:id="chapter_Installation_ControlPanel_AmbienceSettings">
+      <title>Ambience Settings</title>
+      <para> Ambience is Gallio's own utility for storing persistent data across multiple test runs.
+        It runs in the background as a Windows service when called upon. If you used the MSI
+        installer to install Gallio and included Ambience in the option list, you'll have been asked
+        whether the Ambience service should be started manually or automatically. The Ambience >
+        Server dialog, shown in <xref linkend="fig_ControlPanel_Ambience"/>, provides a shortcut to the Windows Services administration tool to let you
+        change that setting.</para>
+      <figure xml:id="fig_ControlPanel_Ambience">
+        <title>Accessing The Ambience Service</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/ControlPanel_Ambience.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Accessign The Ambience Service</phrase></textobject>
+        </mediaobject>
+      </figure>
+    </section>
+  </section>
+  <section xml:id="chapter_Installation_Conclusion">
+    <title>Conclusion</title>
+    <para>In this chapter, we've seen how to install and configure Gallio and MbUnit v3. In the next
+      chapter we'll introduce the idea of unit testing. </para>
+  </section>
 </chapter>
