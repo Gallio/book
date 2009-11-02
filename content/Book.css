@@ -1,8 +1,8 @@
 ﻿@import url(gallio.css);
 
-h2,h3,h4 
+h2,h3,h4,h5 
 {
-	font-family:"Trebuchet MS",sans-serif; font-weight:normal; 
+	font-family:"Trebuchet MS",sans-serif; font-weight:bold; 
 }
 #book-content 
 {
@@ -36,6 +36,7 @@ h2,h3,h4
 .navheader, .navfooter
 {
 	width: 800px;
+	margin: 0 auto;
 	font:12px/1.5 Verdana,sans-serif;
 }
 .navheader a, .navfooter a

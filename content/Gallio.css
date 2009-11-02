@@ -212,45 +212,42 @@ so there is NO "visible" styling in this tag */
 
 /*** Content ***/
 
-#content
+#book-content
 {
 	margin-right: 320px;
 	line-height: 1.4em;
 }
-#content h1
+#book-content h1
+{
+	font-size:2em;
+	font-weight: bold;
+}
+#book-content h2
+{
+	font-size:1.8em;
+	font-weight: bold;
+}
+#book-content h3
+{
+	font-size:1.6em;
+	font-weight: bold;
+}
+#book-content h4
+{
+	font-size:1.4em;
+	font-weight: bold;
+}
+#book-content h5
 {
 	font-size:1.3em;
 	font-weight: bold;
 }
-#content h2
-{
-	font-size:1.2em;
-	font-weight: bold;
-}
-#content h3
-{
-	font-size:1.1em;
-	font-weight: bold;
-}
-content h4
-{
-	font-size:1.0em;
-	font-weight: bold;
-}
-#content p
-{
-	font-size: 1.1em;
-}
-#content .sF
+#book-content .sF
 {
 	font-style: italic;
 	color: #009933;
 }
 
-#content a
-{
-	font-weight: normal;
-}
 .question
 {
 	color: #333E46;
