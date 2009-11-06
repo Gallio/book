@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <preface version="5.0" xmlns="http://docbook.org/ns/docbook" xml:id="preface">
   <title>Preface</title>
-  <blockquote>
+  <epigraph>
     <attribution>Scott Hanselman, Microsoft</attribution>
     <para>MbUnit is unit testing on crack.</para>
-  </blockquote>
+  </epigraph>
   <para> In the world of software development, the concept of <glossterm linkend="glossary_tdd">test-driven
       development</glossterm> (<acronym>TDD</acronym>) is not a new one. Conceived in 1999 as part
-    of the <glossterm linkend="glossary_ExtremeProgramming">Extreme Programming</glossterm> process, its popularity within the .NET world
+    of the <glossterm linkend="glossary_extremeProgramming">Extreme Programming</glossterm> process, its popularity within the .NET world
     began to rise in October 2002 when <glossterm linkend="glossary_nUnit">nUnit</glossterm> v2.0 was released. A completely
     reworked version of <glossterm linkend="glossary_jUnit">jUnit</glossterm> written entirely in C#, it started many .NET
     developers down the agile programming path. It was simple to learn, easy to use, and quite
     versatile. However, just as nUnit had many advantages, it also had several disadvantages and
-    other viable test frameworks such as <glossterm linkend="glossary_MbUnit">MbUnit</glossterm> and
+    other viable test frameworks such as <glossterm linkend="glossary_mbUnit">MbUnit</glossterm> and
       <glossterm linkend="glossary_xUnit">xUnit</glossterm> have emerged. </para>
   <para> MbUnit began life in 2004 when Marc Clifton wrote a series of articles proposing the
     formalization of various test patterns beyond basic test-driven development. A young developer
@@ -27,11 +27,11 @@
       <emphasis role="bold">MbUnit v3</emphasis> would remain the test framework that developers
     knew and used, but the automation platform underneath the framework was to be isolated and made
     framework-neutral. This new platform, codenamed <emphasis role="bold"
-        ><glossterm linkend="glossary_Gallio">Gallio</glossterm></emphasis> (because of a typo), would aim to run any
+        ><glossterm linkend="glossary_gallio">Gallio</glossterm></emphasis> (because of a typo), would aim to run any
     framework’s tests – for example nUnit, <glossterm linkend="glossary_nBehave">nBehave</glossterm> or
       <glossterm linkend="glossary_csUnit">csUnit</glossterm> – and allow them to be run from any host – for example
-      <glossterm linkend="glossary_Resharper">Resharper</glossterm>, <glossterm
-        linkend="glossary_TeamCity">TeamCity</glossterm> or <glossterm>Visual
+      <glossterm linkend="glossary_resharper">Resharper</glossterm>, <glossterm
+        linkend="glossary_teamCity">TeamCity</glossterm> or <glossterm>Visual
       Studio</glossterm>. It was agreed that in doing this, other open-source and commercial
     projects would be able to leverage the platform’s services to create rich, interoperable and
     extensible testing solutions, thereby adding great value to the community. Going forward, the
@@ -73,10 +73,10 @@
       two applications it ships with to run tests: </para>
     <itemizedlist>
       <listitem>
-        <para><firstterm linkend="glossary_Echo">Echo</firstterm> is a command-line based application</para>
+        <para><firstterm linkend="glossary_echo">Echo</firstterm> is a command-line based application</para>
       </listitem>
       <listitem>
-        <para><firstterm linkend="glossary_Icarus">Icarus</firstterm> is a GUI-based application</para>
+        <para><firstterm linkend="glossary_icarus">Icarus</firstterm> is a GUI-based application</para>
       </listitem>
     </itemizedlist>
     <para>Note also that the source code examples used throughout the book are only examples. While
@@ -252,7 +252,7 @@
                 v3</link></para>
           </listitem>
           <listitem>
-            <para><link linkend="appendix_Copyright">A copy of the Creative Commons Attribution
+            <para><link linkend="appendix_CreativeCommonsLicense">A copy of the Creative Commons Attribution
                 License, under which this book is licensed.</link></para>
           </listitem>
           <listitem>
@@ -275,7 +275,7 @@
       postponed. </para>
     <para> This book is an evolution of the documentation written in various forms (wikis, blog
       posts, etc) by MbUnit and Gallio developers into a single work. As such, it has always been
-      under a free license (see <xref linkend="appendix_Copyright"/>) and two things will remain
+      under a free license (see <xref linkend="appendix_CreativeCommonsLicense"/>) and two things will remain
       true: </para>
     <itemizedlist>
       <listitem>
@@ -355,7 +355,7 @@
       MbUnit support.</para>
     <para> In 2005 Peli made MbUnit opensource and continued working on the framework while
       finishing his PhD. Shortly after completing his PhD he accepted a job with Microsoft as a
-        <glossterm linkend="glossary_SDET">SDET</glossterm> on the CLR team. Unable to carry on MbUnit, he handed it over
+        <glossterm linkend="glossary_sdet">SDET</glossterm> on the CLR team. Unable to carry on MbUnit, he handed it over
       to Jamie Cansdale as short time caretaker. Peli blogged about needing someone to take on
       MbUnit and shortly after Andy Stopford as a long time MbUnit user read this and stepped
       up.</para>
@@ -366,7 +366,7 @@
       those funny turn of events, v3 was to be code named <emphasis>Galileo</emphasis> but due to a typo became
       <emphasis>Gallio</emphasis>. The name stuck and development continued on MbUnit v3, code name: Gallio.</para>
     <para> With MbUnit v3 development well under way, long time MbUnit core member Jeff Brown
-      attended the <glossterm linkend="glossary_AltNet">Alt.Net</glossterm> conference in Austin, Texas. Following discussions with other programmers
+      attended the <glossterm linkend="glossary_altNet">Alt.Net</glossterm> conference in Austin, Texas. Following discussions with other programmers
       at the conference, Jeff made the case to the MbUnit team that there was value to the community
       at large in isolating the test runner capabilities of the system to create a neutral platform
       upon which MbUnit could then be hosted as one of many supported frameworks. Other open-source

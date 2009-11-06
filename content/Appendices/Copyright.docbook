@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<appendix version="5.0" xmlns="http://docbook.org/ns/docbook" xml:id="appendix_Copyright">
-  <title>License</title>
+<appendix version="5.0" xmlns="http://docbook.org/ns/docbook"
+  xml:id="appendix_CreativeCommonsLicense">
+  <title>Creative Commons License</title>
   <para>The Gallio Book is licensed under a Creative Commons v3 Attribution-ShareAlike (United
     States) license. We present it here for your reference.</para>
   <para><link xmlns:ns1="http://www.w3.org/1999/xlink"

@@ -3,17 +3,28 @@
   <title>Glossary</title>
   <glossdiv>
     <title>A</title>
-    <glossentry id="glossary_AltNet">
+    <glossentry xml:id="glossary_altNet">
       <glossterm>Alt.Net</glossterm>
       <glossdef><para>
         A community of .NET developers who embrace tools, techniques and knowledge from all
         development communities, and not just Microsoft's own tooling and guidance.
       </para></glossdef>
     </glossentry>
+    <glossentry xml:id="glossary_ambience">
+      <glossterm>Ambience</glossterm>
+      <glossdef>
+        <para>Gallio's own utility for storing persistent data across multiple test runs.</para>
+      </glossdef>
+    </glossentry>
   </glossdiv>
   <glossdiv>
     <title>C</title>
-    <glossentry id="glossary_csUnit">
+    <glossentry xml:id="glossary_ccNet">
+      <glossterm>CruiseControl.NET</glossterm>
+      <glossdef><para>A free and open source build management and continuous integration server written in
+        C#.</para></glossdef>
+    </glossentry>
+    <glossentry xml:id="glossary_csUnit">
       <glossterm>csUnit</glossterm>
       <glossdef><para>A unit-testing framework written in C++. Tests written against csUnit can be
         run by Gallio.</para></glossdef>
@@ -21,11 +32,11 @@
   </glossdiv>
   <glossdiv>
     <title>E</title>
-    <glossentry id="glossary_Echo">
+    <glossentry xml:id="glossary_echo">
       <glossterm>Echo</glossterm>
       <glossdef><para>The Gallio project command-line based test runner</para></glossdef>
     </glossentry>
-    <glossentry id="glossary_ExtremeProgramming">
+    <glossentry xml:id="glossary_extremeProgramming">
       <glossterm>Extreme Programming</glossterm>
       <acronym>XP</acronym>
       <glossdef>
@@ -39,62 +50,109 @@
   </glossdiv>
   <glossdiv>
     <title>G</title>
-    <glossentry id="glossary_Gallio">
+    <glossentry xml:id="glossary_gallio">
       <glossterm>Gallio</glossterm>
       <glossdef><para>The framework-neutral Automation Platform half of the Gallio project, written in C#.</para></glossdef>
     </glossentry>
-    <glossentry id="glossary_gUnit">
+    <glossentry xml:id="glossary_gUnit">
       <glossterm>gUnit</glossterm>
       <glossdef><para>The original name for MbUnit.</para></glossdef>
     </glossentry>
   </glossdiv>
   <glossdiv>
     <title>I</title>
-    <glossentry id="glossary_Icarus">
+    <glossentry xml:id="glossary_icarus">
       <glossterm>Icarus</glossterm>
       <glossdef><para>The Gallio project's GUI-based test runner</para></glossdef>
     </glossentry>
+    <glossentry xml:id="glossary_ironPython">
+      <glossterm>IronPython.NET</glossterm>
+      <glossdef><para>An implementation of the Python programming language running under .NET and
+        Silverlight.</para></glossdef>
+    </glossentry> 
+    <glossentry xml:id="glossary_ironRuby">
+      <glossterm>IronRuby.NET</glossterm>
+      <glossdef><para>An implementation of the Ruby programming language running under .NET and
+        Silverlight.</para></glossdef>
+    </glossentry>    
   </glossdiv>
   <glossdiv>
     <title>J</title>
-    <glossentry id="glossary_jUnit">
+    <glossentry xml:id="glossary_jUnit">
       <glossterm>jUnit</glossterm>
       <glossdef><para>A unit-testing framework written in Java.</para></glossdef>
     </glossentry>
   </glossdiv>
   <glossdiv>
     <title>M</title>
-    <glossentry id="glossary_MbUnit">
+    <glossentry xml:id="glossary_mbUnit">
       <glossterm>MbUnit</glossterm>
       <glossdef><para>The unit-testing framework half of the Gallio project, written in C#.</para></glossdef>
     </glossentry>
+    <glossentry xml:id="glossary_msBuild">
+      <glossterm>MSBuild</glossterm>
+      <glossdef><para>A build platform with an XML syntax built into Visual Studio.</para></glossdef>
+    </glossentry>
+    <glossentry xml:id="glossary_msTest">
+      <glossterm>MSTest</glossterm>
+      <glossdef><para>The unit-testing framework built into Visual Studio.</para></glossdef>
+    </glossentry>
   </glossdiv>
   <glossdiv>
+    <title>T</title>
+    <glossentry >
+      <glossterm>TeamCity</glossterm>
+      <glossdef><para>TeamCity is a Java-based build management and continuous integration server.</para></glossdef>
+    </glossentry>
+  </glossdiv>  
+  <glossdiv>
     <title>N</title>
-    <glossentry id="glossary_nBehave">
+    <glossentry xml:id="glossary_nAnt">
+      <glossterm>nAnt</glossterm>
+      <glossdef><para>A free and open source build platform with an XML syntax.</para></glossdef>
+    </glossentry>
+    <glossentry xml:id="glossary_nBehave">
       <glossterm>nBehave</glossterm>
       <glossdef><para>One of the first behavior-driven development frameworks written in C#. Tests
         written against nBehave can be run by
         Gallio.</para></glossdef>
     </glossentry>
-    <glossentry id="glossary_nUnit">
+    <glossentry xml:id="glossary_nCover">
+      <glossterm>nCover</glossterm>
+      <glossdef>
+        <para>A code coverage tool measuring how much of your code is run by the tests you have
+          written.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry xml:id="glossary_nUnit">
       <glossterm>nUnit</glossterm>
       <glossdef><para>One of the first unit-testing frameworks written in C#. Tests written against nUnit can be run by
         Gallio.</para></glossdef>
     </glossentry>
   </glossdiv>
   <glossdiv>
+    <title>O</title>
+    <glossentry xml:id="glossary_objectARX">
+      <glossterm>ObjectARX</glossterm>
+      <glossdef><para>ObjectARX (AutoCAD Runtime Extension) is an API for customizing and extending AutoCAD.</para></glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
     <title>R</title>
-    <glossentry id="glossary_Resharper">
+    <glossentry xml:id="glossary_resharper">
       <glossterm>Resharper</glossterm>
       <acronym>R#</acronym>
       <glossdef><para>A refactoring plug-in for Visual Studio. It has a test runner which can use
         Gallio to run tests written against any framework that Gallio supports.</para></glossdef>
     </glossentry>
+    <glossentry xml:id="glossary_rSpec">
+      <glossterm>RSpec</glossterm>
+      <glossdef><para>The original Behaviour Driven Development framework for Ruby</para></glossdef>
+    </glossentry>
   </glossdiv>
   <glossdiv>
     <title>S</title>
-    <glossentry id="glossary_SDET">
+    <glossentry xml:id="glossary_sdet">
       <glossterm>Software Development Engineer in Test</glossterm>
       <acronym>SDET</acronym>
       <glossdef><para>
@@ -105,12 +163,12 @@
   </glossdiv>
   <glossdiv>
     <title>T</title>
-    <glossentry id="glossary_TeamCity">
+    <glossentry xml:id="glossary_teamCity">
       <glossterm>TeamCity</glossterm>
       <glossdef><para>A build management and continuous integration server. It has a test runner which can use
         Gallio to run tests written against any framework that Gallio supports.</para></glossdef>
     </glossentry>
-    <glossentry id="glossary_tdd">
+    <glossentry xml:id="glossary_tdd">
       <glossterm>Test-Driven Development</glossterm>
       <acronym>TDD</acronym>
       <glossdef>
@@ -125,10 +183,24 @@
           </para>
       </glossdef>
     </glossentry>
+    <glossentry xml:id="glossary_testDriven.NET">
+      <glossterm>TestDriven.NET</glossterm>
+      <glossdef><para>TestDriven.NET is a plug-in for Visual Studio that allows you to run or debug their
+        (non-MSTest) tests from within Visual Studio</para></glossdef>
+    </glossentry>
+    <glossentry xml:id="glossary_testRunner">
+      <glossterm>Test Runner</glossterm>
+      <glossdef><para>A test runner is a program or plug-in for other programs that provide different ways to run tests through Gallio
+      </para></glossdef>
+    </glossentry>    
+    <glossentry xml:id="glossary_typeMock">
+      <glossterm>TypeMock</glossterm>
+      <glossdef><para>A mock object framework written in C#.</para></glossdef>
+    </glossentry>    
   </glossdiv>
   <glossdiv>
     <title>X</title>
-    <glossentry id="glossary_xUnit">
+    <glossentry xml:id="glossary_xUnit">
       <glossterm>xUnit</glossterm>
       <glossdef><para>One of the newer unit-testing frameworks written in C#, written from scratch
         by some members of the nUnit team based on their experience with that. Tests written
